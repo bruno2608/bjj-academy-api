@@ -50,29 +50,67 @@ findAll(@User() user) {
 ```
 bjj-academy-api/
 │
+├── prisma/
+│   └── schema.prisma              # Definição do schema Prisma
+│
 ├── src/
-│   ├── auth/                  # Lógica de autenticação e JWT
-│   ├── common/                # Guards e Decorators reutilizáveis
-│   ├── usuarios/              # Módulo inicial com rota protegida
+│   ├── auth/                      # Módulo de autenticação
+│   │   ├── auth.module.ts
+│   │   ├── auth.service.ts
+│   │   └── jwt.strategy.ts
+│   │
+│   ├── common/                    # Utilitários compartilhados (guards, decorators)
+│   │   ├── prisma.service.ts
+│   │   ├── guards/
+│   │   │   ├── jwt-auth.guard.ts
+│   │   │   └── roles.guard.ts
+│   │   └── decorators/
+│   │       ├── roles.decorator.ts
+│   │       └── user.decorator.ts
+│   │
+│   ├── users/                     # Módulo de usuários
+│   │   ├── dtos/
+│   │   │   └── usuario-response.dto.ts
+│   │   ├── users.controller.ts
+│   │   ├── users.module.ts
+│   │   └── users.service.ts
+│   │
+│   ├── app.controller.ts
+│   ├── app.module.ts
+│   ├── app.service.ts
 │   └── main.ts
-├── .env                       # Variáveis de ambiente (ex: JWT_SECRET)
+│
+├── test/                          # Testes e2e
+│   ├── app.e2e-spec.ts
+│   └── jest-e2e.json
+│
+├── .env
+├── .gitignore
+├── .prettierrc
+├── eslint.config.mjs
 ├── package.json
+├── package-lock.json
+├── nest-cli.json
 ├── tsconfig.json
+├── tsconfig.build.json
 └── README.md
 ```
 
 ---
 
-## 📋 Funcionalidades Atuais
+## Funcionalidades atuais
 
-- ✅ Estrutura com NestJS
-- ✅ Conexão com banco PostgreSQL do Supabase
-- ✅ Configuração do JWT
-- ✅ Guards personalizados: `JwtAuthGuard`, `RolesGuard`
-- ✅ Decorators: `@User`, `@Roles`
-- ✅ Controle de acesso por nível de permissão
-- ✅ Scripts de versionamento e changelog automático (`standard-version`)
-
+- 🔒 Autenticação com JWT (login via e-mail/senha)
+- 🧠 Uso de Guards personalizados:
+  - `JwtAuthGuard` para proteger rotas autenticadas
+  - `RolesGuard` para controle por nível de acesso
+- 🧩 Decorators personalizados:
+  - `@User()` para injetar o usuário logado na rota
+  - `@Roles()` para validar o nível de acesso
+- 📁 Módulo `users` com rota protegida:
+  - Listagem de usuários por `academia_id` (somente instrutor ou superior)
+- 🎯 Integração com banco Supabase (PostgreSQL)
+- ❌ **RLS desativado**: controle de acesso feito diretamente via código backend
 
 ---
 
@@ -111,6 +149,3 @@ Para uso comercial ou autorização, entre em contato:
 Feito com 💙 por [Bruno Alves Franca](https://github.com/balvesfranca)  
 📸 Instagram: [@balvesfranca](https://instagram.com/balvesfranca)
 
----
-teste
----
