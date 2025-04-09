@@ -1,6 +1,13 @@
 # Changelog
 
-Todas as alterações importantes neste projeto serão documentadas aqui.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 1.1.0 (2025-04-09)
+
+
+### Features
+
+* **api:** estrutura inicial com autenticação JWT e0bfa4c
 
 ## [1.0.0] - 2025-04-09
 - 🚀 início da estrutura da API da BJJ Academy com NestJS
