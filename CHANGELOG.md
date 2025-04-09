@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/bruno2608/bjj-academy-api/compare/v1.3.0...v1.4.0) (2025-04-09)
+
+
+### Features
+
+* **api:** torna academia_id obrigatório para usuário ([a600eaf](https://github.com/bruno2608/bjj-academy-api/commit/a600eaff22df839491334a0db9dc9b6250aeeaef))
+
 ## [1.3.0](https://github.com/bruno2608/bjj-academy-api/compare/v1.2.3...v1.3.0) (2025-04-09)
 
 ### [1.2.3](https://github.com/bruno2608/bjj-academy-api/compare/v1.2.2...v1.2.3) (2025-04-09)

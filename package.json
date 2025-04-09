@@ -1,6 +1,6 @@
 {
   "name": "bjj-academy-api",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "API backend do BJJ Academy utilizando NestJS, JWT e controle de acesso",
   "main": "dist/main.js",
   "scripts": {
