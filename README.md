@@ -65,11 +65,13 @@ bjj-academy-api/
 
 ## 📋 Funcionalidades Atuais
 
-- ✅ Login via token JWT
-- ✅ Decorator `@User()` para pegar usuário autenticado
-- ✅ Guard `@Roles()` para proteger endpoints com base no nível
-- ✅ Estrutura modular e escalável
-- ✅ Separação clara entre lógica de autenticação e regras de negócio
+- ✅ Estrutura com NestJS
+- ✅ Conexão com banco PostgreSQL do Supabase
+- ✅ Configuração do JWT
+- ✅ Guards personalizados: `JwtAuthGuard`, `RolesGuard`
+- ✅ Decorators: `@User`, `@Roles`
+- ✅ Controle de acesso por nível de permissão
+- ✅ Scripts de versionamento e changelog automático (`standard-version`)
 
 ---
 
