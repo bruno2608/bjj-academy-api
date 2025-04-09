@@ -73,6 +73,7 @@ bjj-academy-api/
 - ✅ Controle de acesso por nível de permissão
 - ✅ Scripts de versionamento e changelog automático (`standard-version`)
 
+
 ---
 
 ## 🚧 Em desenvolvimento
@@ -109,3 +110,4 @@ Para uso comercial ou autorização, entre em contato:
 
 Feito com 💙 por [Bruno Alves Franca](https://github.com/balvesfranca)  
 📸 Instagram: [@balvesfranca](https://instagram.com/balvesfranca)
+
