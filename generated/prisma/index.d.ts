@@ -37827,6 +37827,7 @@ export namespace Prisma {
     ativo: boolean | null
     created_at: Date | null
     updated_at: Date | null
+    senha: string | null
   }
 
   export type UsuariosMaxAggregateOutputType = {
@@ -37844,6 +37845,7 @@ export namespace Prisma {
     ativo: boolean | null
     created_at: Date | null
     updated_at: Date | null
+    senha: string | null
   }
 
   export type UsuariosCountAggregateOutputType = {
@@ -37861,6 +37863,7 @@ export namespace Prisma {
     ativo: number
     created_at: number
     updated_at: number
+    senha: number
     _all: number
   }
 
@@ -37880,6 +37883,7 @@ export namespace Prisma {
     ativo?: true
     created_at?: true
     updated_at?: true
+    senha?: true
   }
 
   export type UsuariosMaxAggregateInputType = {
@@ -37897,6 +37901,7 @@ export namespace Prisma {
     ativo?: true
     created_at?: true
     updated_at?: true
+    senha?: true
   }
 
   export type UsuariosCountAggregateInputType = {
@@ -37914,6 +37919,7 @@ export namespace Prisma {
     ativo?: true
     created_at?: true
     updated_at?: true
+    senha?: true
     _all?: true
   }
 
@@ -38004,6 +38010,7 @@ export namespace Prisma {
     ativo: boolean | null
     created_at: Date | null
     updated_at: Date | null
+    senha: string | null
     _count: UsuariosCountAggregateOutputType | null
     _min: UsuariosMinAggregateOutputType | null
     _max: UsuariosMaxAggregateOutputType | null
@@ -38038,6 +38045,7 @@ export namespace Prisma {
     ativo?: boolean
     created_at?: boolean
     updated_at?: boolean
+    senha?: boolean
     alunos?: boolean | usuarios$alunosArgs<ExtArgs>
     aulas?: boolean | usuarios$aulasArgs<ExtArgs>
     aulas_instancias?: boolean | usuarios$aulas_instanciasArgs<ExtArgs>
@@ -38070,6 +38078,7 @@ export namespace Prisma {
     ativo?: boolean
     created_at?: boolean
     updated_at?: boolean
+    senha?: boolean
     academias?: boolean | academiasDefaultArgs<ExtArgs>
     users?: boolean | usuarios$usersArgs<ExtArgs>
   }, ExtArgs["result"]["usuarios"]>
@@ -38089,6 +38098,7 @@ export namespace Prisma {
     ativo?: boolean
     created_at?: boolean
     updated_at?: boolean
+    senha?: boolean
     academias?: boolean | academiasDefaultArgs<ExtArgs>
     users?: boolean | usuarios$usersArgs<ExtArgs>
   }, ExtArgs["result"]["usuarios"]>
@@ -38108,9 +38118,10 @@ export namespace Prisma {
     ativo?: boolean
     created_at?: boolean
     updated_at?: boolean
+    senha?: boolean
   }
 
-  export type usuariosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "auth_id" | "academia_id" | "nome" | "email" | "telefone" | "data_nascimento" | "cpf" | "genero" | "foto_url" | "data_cadastro" | "ativo" | "created_at" | "updated_at", ExtArgs["result"]["usuarios"]>
+  export type usuariosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "auth_id" | "academia_id" | "nome" | "email" | "telefone" | "data_nascimento" | "cpf" | "genero" | "foto_url" | "data_cadastro" | "ativo" | "created_at" | "updated_at" | "senha", ExtArgs["result"]["usuarios"]>
   export type usuariosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alunos?: boolean | usuarios$alunosArgs<ExtArgs>
     aulas?: boolean | usuarios$aulasArgs<ExtArgs>
@@ -38170,6 +38181,7 @@ export namespace Prisma {
       ativo: boolean | null
       created_at: Date | null
       updated_at: Date | null
+      senha: string | null
     }, ExtArgs["result"]["usuarios"]>
     composites: {}
   }
@@ -38621,6 +38633,7 @@ export namespace Prisma {
     readonly ativo: FieldRef<"usuarios", 'Boolean'>
     readonly created_at: FieldRef<"usuarios", 'DateTime'>
     readonly updated_at: FieldRef<"usuarios", 'DateTime'>
+    readonly senha: FieldRef<"usuarios", 'String'>
   }
     
 
@@ -40983,7 +40996,8 @@ export namespace Prisma {
     data_cadastro: 'data_cadastro',
     ativo: 'ativo',
     created_at: 'created_at',
-    updated_at: 'updated_at'
+    updated_at: 'updated_at',
+    senha: 'senha'
   };
 
   export type UsuariosScalarFieldEnum = (typeof UsuariosScalarFieldEnum)[keyof typeof UsuariosScalarFieldEnum]
@@ -43567,6 +43581,7 @@ export namespace Prisma {
     ativo?: BoolNullableFilter<"usuarios"> | boolean | null
     created_at?: DateTimeNullableFilter<"usuarios"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"usuarios"> | Date | string | null
+    senha?: StringNullableFilter<"usuarios"> | string | null
     alunos?: XOR<AlunosNullableScalarRelationFilter, alunosWhereInput> | null
     aulas?: AulasListRelationFilter
     aulas_instancias?: Aulas_instanciasListRelationFilter
@@ -43598,6 +43613,7 @@ export namespace Prisma {
     ativo?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
+    senha?: SortOrderInput | SortOrder
     alunos?: alunosOrderByWithRelationInput
     aulas?: aulasOrderByRelationAggregateInput
     aulas_instancias?: aulas_instanciasOrderByRelationAggregateInput
@@ -43632,6 +43648,7 @@ export namespace Prisma {
     ativo?: BoolNullableFilter<"usuarios"> | boolean | null
     created_at?: DateTimeNullableFilter<"usuarios"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"usuarios"> | Date | string | null
+    senha?: StringNullableFilter<"usuarios"> | string | null
     alunos?: XOR<AlunosNullableScalarRelationFilter, alunosWhereInput> | null
     aulas?: AulasListRelationFilter
     aulas_instancias?: Aulas_instanciasListRelationFilter
@@ -43663,6 +43680,7 @@ export namespace Prisma {
     ativo?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
+    senha?: SortOrderInput | SortOrder
     _count?: usuariosCountOrderByAggregateInput
     _max?: usuariosMaxOrderByAggregateInput
     _min?: usuariosMinOrderByAggregateInput
@@ -43686,6 +43704,7 @@ export namespace Prisma {
     ativo?: BoolNullableWithAggregatesFilter<"usuarios"> | boolean | null
     created_at?: DateTimeNullableWithAggregatesFilter<"usuarios"> | Date | string | null
     updated_at?: DateTimeNullableWithAggregatesFilter<"usuarios"> | Date | string | null
+    senha?: StringNullableWithAggregatesFilter<"usuarios"> | string | null
   }
 
   export type usuarios_papeisWhereInput = {
@@ -46306,6 +46325,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -46337,6 +46357,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -46364,6 +46385,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -46395,6 +46417,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -46424,6 +46447,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
   }
 
   export type usuariosUpdateManyMutationInput = {
@@ -46439,6 +46463,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type usuariosUncheckedUpdateManyInput = {
@@ -46456,6 +46481,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type usuarios_papeisCreateInput = {
@@ -48522,6 +48548,7 @@ export namespace Prisma {
     ativo?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    senha?: SortOrder
   }
 
   export type usuariosMaxOrderByAggregateInput = {
@@ -48539,6 +48566,7 @@ export namespace Prisma {
     ativo?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    senha?: SortOrder
   }
 
   export type usuariosMinOrderByAggregateInput = {
@@ -48556,6 +48584,7 @@ export namespace Prisma {
     ativo?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    senha?: SortOrder
   }
 
   export type PapeisNullableScalarRelationFilter = {
@@ -53065,6 +53094,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -53094,6 +53124,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -53264,6 +53295,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -53293,6 +53325,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -53368,6 +53401,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -53397,6 +53431,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -53490,6 +53525,7 @@ export namespace Prisma {
     ativo?: BoolNullableFilter<"usuarios"> | boolean | null
     created_at?: DateTimeNullableFilter<"usuarios"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"usuarios"> | Date | string | null
+    senha?: StringNullableFilter<"usuarios"> | string | null
   }
 
   export type usuariosCreateWithoutAlunosInput = {
@@ -53505,6 +53541,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
     excecoes_turma?: excecoes_turmaCreateNestedManyWithoutUsuariosInput
@@ -53535,6 +53572,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
     excecoes_turma?: excecoes_turmaUncheckedCreateNestedManyWithoutUsuariosInput
@@ -53743,6 +53781,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
     excecoes_turma?: excecoes_turmaUpdateManyWithoutUsuariosNestedInput
@@ -53773,6 +53812,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
     excecoes_turma?: excecoes_turmaUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -53957,6 +53997,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
     excecoes_turma?: excecoes_turmaCreateNestedManyWithoutUsuariosInput
@@ -53987,6 +54028,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
     excecoes_turma?: excecoes_turmaUncheckedCreateNestedManyWithoutUsuariosInput
@@ -54102,6 +54144,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
     excecoes_turma?: excecoes_turmaUpdateManyWithoutUsuariosNestedInput
@@ -54132,6 +54175,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
     excecoes_turma?: excecoes_turmaUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -54269,6 +54313,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     excecoes_turma?: excecoes_turmaCreateNestedManyWithoutUsuariosInput
@@ -54299,6 +54344,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     excecoes_turma?: excecoes_turmaUncheckedCreateNestedManyWithoutUsuariosInput
@@ -54412,6 +54458,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     excecoes_turma?: excecoes_turmaUpdateManyWithoutUsuariosNestedInput
@@ -54442,6 +54489,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     excecoes_turma?: excecoes_turmaUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -54531,6 +54579,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -54561,6 +54610,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -54699,6 +54749,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -54729,6 +54780,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -54851,6 +54903,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -54881,6 +54934,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -54976,6 +55030,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -55006,6 +55061,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -55079,6 +55135,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -55109,6 +55166,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -55247,6 +55305,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -55277,6 +55336,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -55399,6 +55459,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -55429,6 +55490,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -55524,6 +55586,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -55554,6 +55617,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -55706,6 +55770,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -55736,6 +55801,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -55767,6 +55833,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -55797,6 +55864,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -55923,6 +55991,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -55953,6 +56022,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -55990,6 +56060,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -56020,6 +56091,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -56379,6 +56451,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -56409,6 +56482,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -56500,6 +56574,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -56530,6 +56605,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -57434,6 +57510,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -57464,6 +57541,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -57515,6 +57593,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosCreateNestedOneWithoutUsuariosInput
     aulas?: aulasCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
@@ -57545,6 +57624,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
     alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
     aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
     aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
@@ -57587,6 +57667,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -57617,6 +57698,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -57680,6 +57762,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -57710,6 +57793,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -58206,6 +58290,7 @@ export namespace Prisma {
     ativo?: boolean | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    senha?: string | null
   }
 
   export type turmasUpdateWithoutAcademiasInput = {
@@ -58274,6 +58359,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
@@ -58303,6 +58389,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
     alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
     aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
     aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -58331,6 +58418,7 @@ export namespace Prisma {
     ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    senha?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type excecoes_turmaCreateManyAlunosInput = {

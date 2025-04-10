@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.3](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.2...v1.4.3) (2025-04-10)
+
+### ✨ Novidades
+- Implementado login com verificação de senha via `bcrypt`
+- Criação do `AuthController` com rota `POST /auth/login`
+- Geração de token JWT com payload personalizado
+
+### ✅ Funcionalidades protegidas
+- Criado módulo `users` com rota `GET /usuarios`
+- Implementado `JwtAuthGuard`, `RolesGuard` e decorators `@User()` e `@Roles()`
+- Rota protegida agora só permite acesso de usuários com nível `>= 4`
+
+### 🔐 Segurança e controle
+- Lógica aprimorada para retornar o maior `nivel_acesso` do usuário
+- Autenticação baseada em relacionamento entre `usuarios` e `usuarios_papeis`
+- Tokens incluem `sub`, `email`, `academia_id` e `nivel_acesso`
+
+### 🛠 Infraestrutura e ajustes
+- Criado `common.module.ts` para consolidar `PrismaService` e guards/decorators
+- Variável `JWT_SECRET` agora é obrigatória no `.env`
+- Atualização completa da estrutura de pastas no `README.md`
+
+---
+
+> ℹ️ Testado com sucesso via Postman, incluindo uso de scripts para capturar o token e aplicá-lo automaticamente em requisições subsequentes.
+
 ### [1.4.2](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.1...v1.4.2) (2025-04-09)
 
 ### [1.4.1](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.0...v1.4.1) (2025-04-09)

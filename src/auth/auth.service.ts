@@ -5,13 +5,19 @@ import { JwtService } from '@nestjs/jwt';
 export class AuthService {
   constructor(private jwtService: JwtService) {}
 
-  login(user: any) {
+  login(user: {
+    id: string;
+    email: string;
+    academia_id: string;
+    nivel_acesso: number;
+  }) {
     const payload = {
       sub: user.id,
       email: user.email,
-      nivel_acesso: user.nivel_acesso,
       academia_id: user.academia_id,
+      nivel_acesso: user.nivel_acesso,
     };
+
     return {
       access_token: this.jwtService.sign(payload),
     };

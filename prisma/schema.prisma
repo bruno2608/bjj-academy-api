@@ -581,6 +581,7 @@ model usuarios {
   ativo                                                   Boolean?              @default(true)
   created_at                                              DateTime?             @default(now()) @db.Timestamptz(6)
   updated_at                                              DateTime?             @default(now()) @db.Timestamptz(6)
+  senha                                                   String?
   alunos                                                  alunos?
   aulas                                                   aulas[]
   aulas_instancias                                        aulas_instancias[]

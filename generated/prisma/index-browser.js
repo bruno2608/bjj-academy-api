@@ -484,7 +484,8 @@ exports.Prisma.UsuariosScalarFieldEnum = {
   data_cadastro: 'data_cadastro',
   ativo: 'ativo',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  senha: 'senha'
 };
 
 exports.Prisma.Usuarios_papeisScalarFieldEnum = {
