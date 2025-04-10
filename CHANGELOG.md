@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.3](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.2...v1.4.3) (2025-04-10)
+
+
+### Features
+
+* **api:** login JWT com bcrypt, rota protegida e validação por academia_id e nível ([29a5527](https://github.com/bruno2608/bjj-academy-api/commit/29a55271807f6fa21fbe9f206bf7a4cc507a36bf))
+
 ## [1.4.3](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.2...v1.4.3) (2025-04-10)
 
 ### ✨ Novidades
