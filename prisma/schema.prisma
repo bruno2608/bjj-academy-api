@@ -329,19 +329,20 @@ model users {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model academias {
-  id            String     @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  nome          String
-  cnpj          String?
-  endereco      String?
-  telefone      String?
-  email         String?
-  logo_url      String?
-  ativa         Boolean?   @default(true)
-  data_cadastro DateTime?  @default(dbgenerated("CURRENT_DATE")) @db.Date
-  created_at    DateTime?  @default(now()) @db.Timestamptz(6)
-  updated_at    DateTime?  @default(now()) @db.Timestamptz(6)
-  turmas        turmas[]
-  usuarios      usuarios[]
+  id             String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  nome           String
+  cnpj           String?
+  endereco       String?
+  telefone       String?
+  email          String?
+  logo_url       String?
+  ativa          Boolean?     @default(true)
+  data_cadastro  DateTime?    @default(dbgenerated("CURRENT_DATE")) @db.Date
+  created_at     DateTime?    @default(now()) @db.Timestamptz(6)
+  updated_at     DateTime?    @default(now()) @db.Timestamptz(6)
+  codigo_convite String?      @db.VarChar(20)
+  matriculas     matriculas[]
+  turmas         turmas[]
 
   @@schema("public")
 }
@@ -459,19 +460,22 @@ model graduacoes {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model matriculas {
-  id              String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  aluno_id        String?   @db.Uuid
-  turma_id        String?   @db.Uuid
-  data_inicio     DateTime  @default(dbgenerated("CURRENT_DATE")) @db.Date
-  data_fim        DateTime? @db.Date
-  status          String?   @default("Ativa")
+  id              String     @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  aluno_id        String?    @db.Uuid
+  turma_id        String?    @db.Uuid
+  data_inicio     DateTime   @default(dbgenerated("CURRENT_DATE")) @db.Date
+  data_fim        DateTime?  @db.Date
+  status          String?    @default("Ativa")
   observacoes     String?
-  matriculado_por String?   @db.Uuid
-  created_at      DateTime? @default(now()) @db.Timestamptz(6)
-  updated_at      DateTime? @default(now()) @db.Timestamptz(6)
-  alunos          alunos?   @relation(fields: [aluno_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  usuarios        usuarios? @relation(fields: [matriculado_por], references: [id], onUpdate: NoAction)
-  turmas          turmas?   @relation(fields: [turma_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  matriculado_por String?    @db.Uuid
+  created_at      DateTime?  @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime?  @default(now()) @db.Timestamptz(6)
+  numero          Int?
+  academia_id     String?    @db.Uuid
+  academias       academias? @relation(fields: [academia_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_academia")
+  alunos          alunos?    @relation(fields: [aluno_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  usuarios        usuarios?  @relation(fields: [matriculado_por], references: [id], onUpdate: NoAction)
+  turmas          turmas?    @relation(fields: [turma_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([aluno_id, turma_id, data_inicio])
   @@schema("public")
@@ -569,7 +573,6 @@ model turmas_responsaveis {
 model usuarios {
   id                                                      String                @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   auth_id                                                 String?               @unique @db.Uuid
-  academia_id                                             String                @db.Uuid
   nome                                                    String
   email                                                   String                @unique
   telefone                                                String?
@@ -592,7 +595,6 @@ model usuarios {
   presencas_presencas_confirmada_porTousuarios            presencas[]           @relation("presencas_confirmada_porTousuarios")
   presencas_presencas_registrada_porTousuarios            presencas[]           @relation("presencas_registrada_porTousuarios")
   turmas_responsaveis                                     turmas_responsaveis[]
-  academias                                               academias             @relation(fields: [academia_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   users                                                   users?                @relation(fields: [auth_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   usuarios_papeis_usuarios_papeis_concedido_porTousuarios usuarios_papeis[]     @relation("usuarios_papeis_concedido_porTousuarios")
   usuarios_papeis_usuarios_papeis_usuario_idTousuarios    usuarios_papeis[]     @relation("usuarios_papeis_usuario_idTousuarios")

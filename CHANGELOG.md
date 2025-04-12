@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.4](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.3...v1.4.4) (2025-04-12)
+
+### ✨ Melhorias no fluxo de autenticação
+- Corrigido login para garantir retorno correto do `academia_id`
+- Consulta da matrícula agora via `findFirst` separado de forma segura
+- JWT inclui `academia_id` e `nivel_acesso` sempre que possível
+- Erro claro 401 se o usuário não tiver matrícula válida
+
+### ✅ Fluxo de cadastro público
+- Confirmação da criação automática de matrícula
+- Associação correta por `codigo_convite`
+- Papel padrão `aluno` incluído automaticamente
+
+### 🛠 Ajustes no Postman e documentação
+- Nova Collection `v7` com endpoints corrigidos e organizados
+- Ambiente `.json` com variáveis `{{token}}` e `{{base_url}}`
+- README atualizado com seções de endpoints, roadmap e funcionalidades previstas
+
 ### [1.4.3](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.2...v1.4.3) (2025-04-10)
 
 

@@ -3903,13 +3903,13 @@ export namespace Prisma {
    */
 
   export type AcademiasCountOutputType = {
+    matriculas: number
     turmas: number
-    usuarios: number
   }
 
   export type AcademiasCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    matriculas?: boolean | AcademiasCountOutputTypeCountMatriculasArgs
     turmas?: boolean | AcademiasCountOutputTypeCountTurmasArgs
-    usuarios?: boolean | AcademiasCountOutputTypeCountUsuariosArgs
   }
 
   // Custom InputTypes
@@ -3926,15 +3926,15 @@ export namespace Prisma {
   /**
    * AcademiasCountOutputType without action
    */
-  export type AcademiasCountOutputTypeCountTurmasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: turmasWhereInput
+  export type AcademiasCountOutputTypeCountMatriculasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: matriculasWhereInput
   }
 
   /**
    * AcademiasCountOutputType without action
    */
-  export type AcademiasCountOutputTypeCountUsuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: usuariosWhereInput
+  export type AcademiasCountOutputTypeCountTurmasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: turmasWhereInput
   }
 
 
@@ -22247,6 +22247,7 @@ export namespace Prisma {
     data_cadastro: Date | null
     created_at: Date | null
     updated_at: Date | null
+    codigo_convite: string | null
   }
 
   export type AcademiasMaxAggregateOutputType = {
@@ -22261,6 +22262,7 @@ export namespace Prisma {
     data_cadastro: Date | null
     created_at: Date | null
     updated_at: Date | null
+    codigo_convite: string | null
   }
 
   export type AcademiasCountAggregateOutputType = {
@@ -22275,6 +22277,7 @@ export namespace Prisma {
     data_cadastro: number
     created_at: number
     updated_at: number
+    codigo_convite: number
     _all: number
   }
 
@@ -22291,6 +22294,7 @@ export namespace Prisma {
     data_cadastro?: true
     created_at?: true
     updated_at?: true
+    codigo_convite?: true
   }
 
   export type AcademiasMaxAggregateInputType = {
@@ -22305,6 +22309,7 @@ export namespace Prisma {
     data_cadastro?: true
     created_at?: true
     updated_at?: true
+    codigo_convite?: true
   }
 
   export type AcademiasCountAggregateInputType = {
@@ -22319,6 +22324,7 @@ export namespace Prisma {
     data_cadastro?: true
     created_at?: true
     updated_at?: true
+    codigo_convite?: true
     _all?: true
   }
 
@@ -22406,6 +22412,7 @@ export namespace Prisma {
     data_cadastro: Date | null
     created_at: Date | null
     updated_at: Date | null
+    codigo_convite: string | null
     _count: AcademiasCountAggregateOutputType | null
     _min: AcademiasMinAggregateOutputType | null
     _max: AcademiasMaxAggregateOutputType | null
@@ -22437,8 +22444,9 @@ export namespace Prisma {
     data_cadastro?: boolean
     created_at?: boolean
     updated_at?: boolean
+    codigo_convite?: boolean
+    matriculas?: boolean | academias$matriculasArgs<ExtArgs>
     turmas?: boolean | academias$turmasArgs<ExtArgs>
-    usuarios?: boolean | academias$usuariosArgs<ExtArgs>
     _count?: boolean | AcademiasCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["academias"]>
 
@@ -22454,6 +22462,7 @@ export namespace Prisma {
     data_cadastro?: boolean
     created_at?: boolean
     updated_at?: boolean
+    codigo_convite?: boolean
   }, ExtArgs["result"]["academias"]>
 
   export type academiasSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -22468,6 +22477,7 @@ export namespace Prisma {
     data_cadastro?: boolean
     created_at?: boolean
     updated_at?: boolean
+    codigo_convite?: boolean
   }, ExtArgs["result"]["academias"]>
 
   export type academiasSelectScalar = {
@@ -22482,12 +22492,13 @@ export namespace Prisma {
     data_cadastro?: boolean
     created_at?: boolean
     updated_at?: boolean
+    codigo_convite?: boolean
   }
 
-  export type academiasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "cnpj" | "endereco" | "telefone" | "email" | "logo_url" | "ativa" | "data_cadastro" | "created_at" | "updated_at", ExtArgs["result"]["academias"]>
+  export type academiasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "cnpj" | "endereco" | "telefone" | "email" | "logo_url" | "ativa" | "data_cadastro" | "created_at" | "updated_at" | "codigo_convite", ExtArgs["result"]["academias"]>
   export type academiasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    matriculas?: boolean | academias$matriculasArgs<ExtArgs>
     turmas?: boolean | academias$turmasArgs<ExtArgs>
-    usuarios?: boolean | academias$usuariosArgs<ExtArgs>
     _count?: boolean | AcademiasCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type academiasIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -22496,8 +22507,8 @@ export namespace Prisma {
   export type $academiasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "academias"
     objects: {
+      matriculas: Prisma.$matriculasPayload<ExtArgs>[]
       turmas: Prisma.$turmasPayload<ExtArgs>[]
-      usuarios: Prisma.$usuariosPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -22511,6 +22522,7 @@ export namespace Prisma {
       data_cadastro: Date | null
       created_at: Date | null
       updated_at: Date | null
+      codigo_convite: string | null
     }, ExtArgs["result"]["academias"]>
     composites: {}
   }
@@ -22905,8 +22917,8 @@ export namespace Prisma {
    */
   export interface Prisma__academiasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    matriculas<T extends academias$matriculasArgs<ExtArgs> = {}>(args?: Subset<T, academias$matriculasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$matriculasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     turmas<T extends academias$turmasArgs<ExtArgs> = {}>(args?: Subset<T, academias$turmasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$turmasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    usuarios<T extends academias$usuariosArgs<ExtArgs> = {}>(args?: Subset<T, academias$usuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -22947,6 +22959,7 @@ export namespace Prisma {
     readonly data_cadastro: FieldRef<"academias", 'DateTime'>
     readonly created_at: FieldRef<"academias", 'DateTime'>
     readonly updated_at: FieldRef<"academias", 'DateTime'>
+    readonly codigo_convite: FieldRef<"academias", 'String'>
   }
     
 
@@ -23335,6 +23348,30 @@ export namespace Prisma {
   }
 
   /**
+   * academias.matriculas
+   */
+  export type academias$matriculasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the matriculas
+     */
+    select?: matriculasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the matriculas
+     */
+    omit?: matriculasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: matriculasInclude<ExtArgs> | null
+    where?: matriculasWhereInput
+    orderBy?: matriculasOrderByWithRelationInput | matriculasOrderByWithRelationInput[]
+    cursor?: matriculasWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MatriculasScalarFieldEnum | MatriculasScalarFieldEnum[]
+  }
+
+  /**
    * academias.turmas
    */
   export type academias$turmasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -23356,30 +23393,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TurmasScalarFieldEnum | TurmasScalarFieldEnum[]
-  }
-
-  /**
-   * academias.usuarios
-   */
-  export type academias$usuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the usuarios
-     */
-    select?: usuariosSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the usuarios
-     */
-    omit?: usuariosOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: usuariosInclude<ExtArgs> | null
-    where?: usuariosWhereInput
-    orderBy?: usuariosOrderByWithRelationInput | usuariosOrderByWithRelationInput[]
-    cursor?: usuariosWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UsuariosScalarFieldEnum | UsuariosScalarFieldEnum[]
   }
 
   /**
@@ -30616,8 +30629,18 @@ export namespace Prisma {
 
   export type AggregateMatriculas = {
     _count: MatriculasCountAggregateOutputType | null
+    _avg: MatriculasAvgAggregateOutputType | null
+    _sum: MatriculasSumAggregateOutputType | null
     _min: MatriculasMinAggregateOutputType | null
     _max: MatriculasMaxAggregateOutputType | null
+  }
+
+  export type MatriculasAvgAggregateOutputType = {
+    numero: number | null
+  }
+
+  export type MatriculasSumAggregateOutputType = {
+    numero: number | null
   }
 
   export type MatriculasMinAggregateOutputType = {
@@ -30631,6 +30654,8 @@ export namespace Prisma {
     matriculado_por: string | null
     created_at: Date | null
     updated_at: Date | null
+    numero: number | null
+    academia_id: string | null
   }
 
   export type MatriculasMaxAggregateOutputType = {
@@ -30644,6 +30669,8 @@ export namespace Prisma {
     matriculado_por: string | null
     created_at: Date | null
     updated_at: Date | null
+    numero: number | null
+    academia_id: string | null
   }
 
   export type MatriculasCountAggregateOutputType = {
@@ -30657,9 +30684,19 @@ export namespace Prisma {
     matriculado_por: number
     created_at: number
     updated_at: number
+    numero: number
+    academia_id: number
     _all: number
   }
 
+
+  export type MatriculasAvgAggregateInputType = {
+    numero?: true
+  }
+
+  export type MatriculasSumAggregateInputType = {
+    numero?: true
+  }
 
   export type MatriculasMinAggregateInputType = {
     id?: true
@@ -30672,6 +30709,8 @@ export namespace Prisma {
     matriculado_por?: true
     created_at?: true
     updated_at?: true
+    numero?: true
+    academia_id?: true
   }
 
   export type MatriculasMaxAggregateInputType = {
@@ -30685,6 +30724,8 @@ export namespace Prisma {
     matriculado_por?: true
     created_at?: true
     updated_at?: true
+    numero?: true
+    academia_id?: true
   }
 
   export type MatriculasCountAggregateInputType = {
@@ -30698,6 +30739,8 @@ export namespace Prisma {
     matriculado_por?: true
     created_at?: true
     updated_at?: true
+    numero?: true
+    academia_id?: true
     _all?: true
   }
 
@@ -30739,6 +30782,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: MatriculasAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MatriculasSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: MatriculasMinAggregateInputType
@@ -30769,6 +30824,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: MatriculasCountAggregateInputType | true
+    _avg?: MatriculasAvgAggregateInputType
+    _sum?: MatriculasSumAggregateInputType
     _min?: MatriculasMinAggregateInputType
     _max?: MatriculasMaxAggregateInputType
   }
@@ -30784,7 +30841,11 @@ export namespace Prisma {
     matriculado_por: string | null
     created_at: Date | null
     updated_at: Date | null
+    numero: number | null
+    academia_id: string | null
     _count: MatriculasCountAggregateOutputType | null
+    _avg: MatriculasAvgAggregateOutputType | null
+    _sum: MatriculasSumAggregateOutputType | null
     _min: MatriculasMinAggregateOutputType | null
     _max: MatriculasMaxAggregateOutputType | null
   }
@@ -30814,6 +30875,9 @@ export namespace Prisma {
     matriculado_por?: boolean
     created_at?: boolean
     updated_at?: boolean
+    numero?: boolean
+    academia_id?: boolean
+    academias?: boolean | matriculas$academiasArgs<ExtArgs>
     alunos?: boolean | matriculas$alunosArgs<ExtArgs>
     usuarios?: boolean | matriculas$usuariosArgs<ExtArgs>
     turmas?: boolean | matriculas$turmasArgs<ExtArgs>
@@ -30830,6 +30894,9 @@ export namespace Prisma {
     matriculado_por?: boolean
     created_at?: boolean
     updated_at?: boolean
+    numero?: boolean
+    academia_id?: boolean
+    academias?: boolean | matriculas$academiasArgs<ExtArgs>
     alunos?: boolean | matriculas$alunosArgs<ExtArgs>
     usuarios?: boolean | matriculas$usuariosArgs<ExtArgs>
     turmas?: boolean | matriculas$turmasArgs<ExtArgs>
@@ -30846,6 +30913,9 @@ export namespace Prisma {
     matriculado_por?: boolean
     created_at?: boolean
     updated_at?: boolean
+    numero?: boolean
+    academia_id?: boolean
+    academias?: boolean | matriculas$academiasArgs<ExtArgs>
     alunos?: boolean | matriculas$alunosArgs<ExtArgs>
     usuarios?: boolean | matriculas$usuariosArgs<ExtArgs>
     turmas?: boolean | matriculas$turmasArgs<ExtArgs>
@@ -30862,20 +30932,25 @@ export namespace Prisma {
     matriculado_por?: boolean
     created_at?: boolean
     updated_at?: boolean
+    numero?: boolean
+    academia_id?: boolean
   }
 
-  export type matriculasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "aluno_id" | "turma_id" | "data_inicio" | "data_fim" | "status" | "observacoes" | "matriculado_por" | "created_at" | "updated_at", ExtArgs["result"]["matriculas"]>
+  export type matriculasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "aluno_id" | "turma_id" | "data_inicio" | "data_fim" | "status" | "observacoes" | "matriculado_por" | "created_at" | "updated_at" | "numero" | "academia_id", ExtArgs["result"]["matriculas"]>
   export type matriculasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    academias?: boolean | matriculas$academiasArgs<ExtArgs>
     alunos?: boolean | matriculas$alunosArgs<ExtArgs>
     usuarios?: boolean | matriculas$usuariosArgs<ExtArgs>
     turmas?: boolean | matriculas$turmasArgs<ExtArgs>
   }
   export type matriculasIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    academias?: boolean | matriculas$academiasArgs<ExtArgs>
     alunos?: boolean | matriculas$alunosArgs<ExtArgs>
     usuarios?: boolean | matriculas$usuariosArgs<ExtArgs>
     turmas?: boolean | matriculas$turmasArgs<ExtArgs>
   }
   export type matriculasIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    academias?: boolean | matriculas$academiasArgs<ExtArgs>
     alunos?: boolean | matriculas$alunosArgs<ExtArgs>
     usuarios?: boolean | matriculas$usuariosArgs<ExtArgs>
     turmas?: boolean | matriculas$turmasArgs<ExtArgs>
@@ -30884,6 +30959,7 @@ export namespace Prisma {
   export type $matriculasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "matriculas"
     objects: {
+      academias: Prisma.$academiasPayload<ExtArgs> | null
       alunos: Prisma.$alunosPayload<ExtArgs> | null
       usuarios: Prisma.$usuariosPayload<ExtArgs> | null
       turmas: Prisma.$turmasPayload<ExtArgs> | null
@@ -30899,6 +30975,8 @@ export namespace Prisma {
       matriculado_por: string | null
       created_at: Date | null
       updated_at: Date | null
+      numero: number | null
+      academia_id: string | null
     }, ExtArgs["result"]["matriculas"]>
     composites: {}
   }
@@ -31293,6 +31371,7 @@ export namespace Prisma {
    */
   export interface Prisma__matriculasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    academias<T extends matriculas$academiasArgs<ExtArgs> = {}>(args?: Subset<T, matriculas$academiasArgs<ExtArgs>>): Prisma__academiasClient<$Result.GetResult<Prisma.$academiasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     alunos<T extends matriculas$alunosArgs<ExtArgs> = {}>(args?: Subset<T, matriculas$alunosArgs<ExtArgs>>): Prisma__alunosClient<$Result.GetResult<Prisma.$alunosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     usuarios<T extends matriculas$usuariosArgs<ExtArgs> = {}>(args?: Subset<T, matriculas$usuariosArgs<ExtArgs>>): Prisma__usuariosClient<$Result.GetResult<Prisma.$usuariosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     turmas<T extends matriculas$turmasArgs<ExtArgs> = {}>(args?: Subset<T, matriculas$turmasArgs<ExtArgs>>): Prisma__turmasClient<$Result.GetResult<Prisma.$turmasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
@@ -31335,6 +31414,8 @@ export namespace Prisma {
     readonly matriculado_por: FieldRef<"matriculas", 'String'>
     readonly created_at: FieldRef<"matriculas", 'DateTime'>
     readonly updated_at: FieldRef<"matriculas", 'DateTime'>
+    readonly numero: FieldRef<"matriculas", 'Int'>
+    readonly academia_id: FieldRef<"matriculas", 'String'>
   }
     
 
@@ -31728,6 +31809,25 @@ export namespace Prisma {
      * Limit how many matriculas to delete.
      */
     limit?: number
+  }
+
+  /**
+   * matriculas.academias
+   */
+  export type matriculas$academiasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the academias
+     */
+    select?: academiasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the academias
+     */
+    omit?: academiasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: academiasInclude<ExtArgs> | null
+    where?: academiasWhereInput
   }
 
   /**
@@ -37815,7 +37915,6 @@ export namespace Prisma {
   export type UsuariosMinAggregateOutputType = {
     id: string | null
     auth_id: string | null
-    academia_id: string | null
     nome: string | null
     email: string | null
     telefone: string | null
@@ -37833,7 +37932,6 @@ export namespace Prisma {
   export type UsuariosMaxAggregateOutputType = {
     id: string | null
     auth_id: string | null
-    academia_id: string | null
     nome: string | null
     email: string | null
     telefone: string | null
@@ -37851,7 +37949,6 @@ export namespace Prisma {
   export type UsuariosCountAggregateOutputType = {
     id: number
     auth_id: number
-    academia_id: number
     nome: number
     email: number
     telefone: number
@@ -37871,7 +37968,6 @@ export namespace Prisma {
   export type UsuariosMinAggregateInputType = {
     id?: true
     auth_id?: true
-    academia_id?: true
     nome?: true
     email?: true
     telefone?: true
@@ -37889,7 +37985,6 @@ export namespace Prisma {
   export type UsuariosMaxAggregateInputType = {
     id?: true
     auth_id?: true
-    academia_id?: true
     nome?: true
     email?: true
     telefone?: true
@@ -37907,7 +38002,6 @@ export namespace Prisma {
   export type UsuariosCountAggregateInputType = {
     id?: true
     auth_id?: true
-    academia_id?: true
     nome?: true
     email?: true
     telefone?: true
@@ -37998,7 +38092,6 @@ export namespace Prisma {
   export type UsuariosGroupByOutputType = {
     id: string
     auth_id: string | null
-    academia_id: string
     nome: string
     email: string
     telefone: string | null
@@ -38033,7 +38126,6 @@ export namespace Prisma {
   export type usuariosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     auth_id?: boolean
-    academia_id?: boolean
     nome?: boolean
     email?: boolean
     telefone?: boolean
@@ -38056,7 +38148,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: boolean | usuarios$presencas_presencas_confirmada_porTousuariosArgs<ExtArgs>
     presencas_presencas_registrada_porTousuarios?: boolean | usuarios$presencas_presencas_registrada_porTousuariosArgs<ExtArgs>
     turmas_responsaveis?: boolean | usuarios$turmas_responsaveisArgs<ExtArgs>
-    academias?: boolean | academiasDefaultArgs<ExtArgs>
     users?: boolean | usuarios$usersArgs<ExtArgs>
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: boolean | usuarios$usuarios_papeis_usuarios_papeis_concedido_porTousuariosArgs<ExtArgs>
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: boolean | usuarios$usuarios_papeis_usuarios_papeis_usuario_idTousuariosArgs<ExtArgs>
@@ -38066,7 +38157,6 @@ export namespace Prisma {
   export type usuariosSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     auth_id?: boolean
-    academia_id?: boolean
     nome?: boolean
     email?: boolean
     telefone?: boolean
@@ -38079,14 +38169,12 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     senha?: boolean
-    academias?: boolean | academiasDefaultArgs<ExtArgs>
     users?: boolean | usuarios$usersArgs<ExtArgs>
   }, ExtArgs["result"]["usuarios"]>
 
   export type usuariosSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     auth_id?: boolean
-    academia_id?: boolean
     nome?: boolean
     email?: boolean
     telefone?: boolean
@@ -38099,14 +38187,12 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     senha?: boolean
-    academias?: boolean | academiasDefaultArgs<ExtArgs>
     users?: boolean | usuarios$usersArgs<ExtArgs>
   }, ExtArgs["result"]["usuarios"]>
 
   export type usuariosSelectScalar = {
     id?: boolean
     auth_id?: boolean
-    academia_id?: boolean
     nome?: boolean
     email?: boolean
     telefone?: boolean
@@ -38121,7 +38207,7 @@ export namespace Prisma {
     senha?: boolean
   }
 
-  export type usuariosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "auth_id" | "academia_id" | "nome" | "email" | "telefone" | "data_nascimento" | "cpf" | "genero" | "foto_url" | "data_cadastro" | "ativo" | "created_at" | "updated_at" | "senha", ExtArgs["result"]["usuarios"]>
+  export type usuariosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "auth_id" | "nome" | "email" | "telefone" | "data_nascimento" | "cpf" | "genero" | "foto_url" | "data_cadastro" | "ativo" | "created_at" | "updated_at" | "senha", ExtArgs["result"]["usuarios"]>
   export type usuariosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alunos?: boolean | usuarios$alunosArgs<ExtArgs>
     aulas?: boolean | usuarios$aulasArgs<ExtArgs>
@@ -38133,18 +38219,15 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: boolean | usuarios$presencas_presencas_confirmada_porTousuariosArgs<ExtArgs>
     presencas_presencas_registrada_porTousuarios?: boolean | usuarios$presencas_presencas_registrada_porTousuariosArgs<ExtArgs>
     turmas_responsaveis?: boolean | usuarios$turmas_responsaveisArgs<ExtArgs>
-    academias?: boolean | academiasDefaultArgs<ExtArgs>
     users?: boolean | usuarios$usersArgs<ExtArgs>
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: boolean | usuarios$usuarios_papeis_usuarios_papeis_concedido_porTousuariosArgs<ExtArgs>
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: boolean | usuarios$usuarios_papeis_usuarios_papeis_usuario_idTousuariosArgs<ExtArgs>
     _count?: boolean | UsuariosCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type usuariosIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    academias?: boolean | academiasDefaultArgs<ExtArgs>
     users?: boolean | usuarios$usersArgs<ExtArgs>
   }
   export type usuariosIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    academias?: boolean | academiasDefaultArgs<ExtArgs>
     users?: boolean | usuarios$usersArgs<ExtArgs>
   }
 
@@ -38161,7 +38244,6 @@ export namespace Prisma {
       presencas_presencas_confirmada_porTousuarios: Prisma.$presencasPayload<ExtArgs>[]
       presencas_presencas_registrada_porTousuarios: Prisma.$presencasPayload<ExtArgs>[]
       turmas_responsaveis: Prisma.$turmas_responsaveisPayload<ExtArgs>[]
-      academias: Prisma.$academiasPayload<ExtArgs>
       users: Prisma.$usersPayload<ExtArgs> | null
       usuarios_papeis_usuarios_papeis_concedido_porTousuarios: Prisma.$usuarios_papeisPayload<ExtArgs>[]
       usuarios_papeis_usuarios_papeis_usuario_idTousuarios: Prisma.$usuarios_papeisPayload<ExtArgs>[]
@@ -38169,7 +38251,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       auth_id: string | null
-      academia_id: string
       nome: string
       email: string
       telefone: string | null
@@ -38586,7 +38667,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios<T extends usuarios$presencas_presencas_confirmada_porTousuariosArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$presencas_presencas_confirmada_porTousuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$presencasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     presencas_presencas_registrada_porTousuarios<T extends usuarios$presencas_presencas_registrada_porTousuariosArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$presencas_presencas_registrada_porTousuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$presencasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     turmas_responsaveis<T extends usuarios$turmas_responsaveisArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$turmas_responsaveisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$turmas_responsaveisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    academias<T extends academiasDefaultArgs<ExtArgs> = {}>(args?: Subset<T, academiasDefaultArgs<ExtArgs>>): Prisma__academiasClient<$Result.GetResult<Prisma.$academiasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     users<T extends usuarios$usersArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$usersArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios<T extends usuarios$usuarios_papeis_usuarios_papeis_concedido_porTousuariosArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$usuarios_papeis_usuarios_papeis_concedido_porTousuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usuarios_papeisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios<T extends usuarios$usuarios_papeis_usuarios_papeis_usuario_idTousuariosArgs<ExtArgs> = {}>(args?: Subset<T, usuarios$usuarios_papeis_usuarios_papeis_usuario_idTousuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usuarios_papeisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -38621,7 +38701,6 @@ export namespace Prisma {
   interface usuariosFieldRefs {
     readonly id: FieldRef<"usuarios", 'String'>
     readonly auth_id: FieldRef<"usuarios", 'String'>
-    readonly academia_id: FieldRef<"usuarios", 'String'>
     readonly nome: FieldRef<"usuarios", 'String'>
     readonly email: FieldRef<"usuarios", 'String'>
     readonly telefone: FieldRef<"usuarios", 'String'>
@@ -40793,7 +40872,8 @@ export namespace Prisma {
     ativa: 'ativa',
     data_cadastro: 'data_cadastro',
     created_at: 'created_at',
-    updated_at: 'updated_at'
+    updated_at: 'updated_at',
+    codigo_convite: 'codigo_convite'
   };
 
   export type AcademiasScalarFieldEnum = (typeof AcademiasScalarFieldEnum)[keyof typeof AcademiasScalarFieldEnum]
@@ -40902,7 +40982,9 @@ export namespace Prisma {
     observacoes: 'observacoes',
     matriculado_por: 'matriculado_por',
     created_at: 'created_at',
-    updated_at: 'updated_at'
+    updated_at: 'updated_at',
+    numero: 'numero',
+    academia_id: 'academia_id'
   };
 
   export type MatriculasScalarFieldEnum = (typeof MatriculasScalarFieldEnum)[keyof typeof MatriculasScalarFieldEnum]
@@ -40985,7 +41067,6 @@ export namespace Prisma {
   export const UsuariosScalarFieldEnum: {
     id: 'id',
     auth_id: 'auth_id',
-    academia_id: 'academia_id',
     nome: 'nome',
     email: 'email',
     telefone: 'telefone',
@@ -42490,8 +42571,9 @@ export namespace Prisma {
     data_cadastro?: DateTimeNullableFilter<"academias"> | Date | string | null
     created_at?: DateTimeNullableFilter<"academias"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"academias"> | Date | string | null
+    codigo_convite?: StringNullableFilter<"academias"> | string | null
+    matriculas?: MatriculasListRelationFilter
     turmas?: TurmasListRelationFilter
-    usuarios?: UsuariosListRelationFilter
   }
 
   export type academiasOrderByWithRelationInput = {
@@ -42506,8 +42588,9 @@ export namespace Prisma {
     data_cadastro?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
+    codigo_convite?: SortOrderInput | SortOrder
+    matriculas?: matriculasOrderByRelationAggregateInput
     turmas?: turmasOrderByRelationAggregateInput
-    usuarios?: usuariosOrderByRelationAggregateInput
   }
 
   export type academiasWhereUniqueInput = Prisma.AtLeast<{
@@ -42525,8 +42608,9 @@ export namespace Prisma {
     data_cadastro?: DateTimeNullableFilter<"academias"> | Date | string | null
     created_at?: DateTimeNullableFilter<"academias"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"academias"> | Date | string | null
+    codigo_convite?: StringNullableFilter<"academias"> | string | null
+    matriculas?: MatriculasListRelationFilter
     turmas?: TurmasListRelationFilter
-    usuarios?: UsuariosListRelationFilter
   }, "id">
 
   export type academiasOrderByWithAggregationInput = {
@@ -42541,6 +42625,7 @@ export namespace Prisma {
     data_cadastro?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
+    codigo_convite?: SortOrderInput | SortOrder
     _count?: academiasCountOrderByAggregateInput
     _max?: academiasMaxOrderByAggregateInput
     _min?: academiasMinOrderByAggregateInput
@@ -42561,6 +42646,7 @@ export namespace Prisma {
     data_cadastro?: DateTimeNullableWithAggregatesFilter<"academias"> | Date | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"academias"> | Date | string | null
     updated_at?: DateTimeNullableWithAggregatesFilter<"academias"> | Date | string | null
+    codigo_convite?: StringNullableWithAggregatesFilter<"academias"> | string | null
   }
 
   export type alunosWhereInput = {
@@ -43085,6 +43171,9 @@ export namespace Prisma {
     matriculado_por?: UuidNullableFilter<"matriculas"> | string | null
     created_at?: DateTimeNullableFilter<"matriculas"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"matriculas"> | Date | string | null
+    numero?: IntNullableFilter<"matriculas"> | number | null
+    academia_id?: UuidNullableFilter<"matriculas"> | string | null
+    academias?: XOR<AcademiasNullableScalarRelationFilter, academiasWhereInput> | null
     alunos?: XOR<AlunosNullableScalarRelationFilter, alunosWhereInput> | null
     usuarios?: XOR<UsuariosNullableScalarRelationFilter, usuariosWhereInput> | null
     turmas?: XOR<TurmasNullableScalarRelationFilter, turmasWhereInput> | null
@@ -43101,6 +43190,9 @@ export namespace Prisma {
     matriculado_por?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
+    numero?: SortOrderInput | SortOrder
+    academia_id?: SortOrderInput | SortOrder
+    academias?: academiasOrderByWithRelationInput
     alunos?: alunosOrderByWithRelationInput
     usuarios?: usuariosOrderByWithRelationInput
     turmas?: turmasOrderByWithRelationInput
@@ -43121,6 +43213,9 @@ export namespace Prisma {
     matriculado_por?: UuidNullableFilter<"matriculas"> | string | null
     created_at?: DateTimeNullableFilter<"matriculas"> | Date | string | null
     updated_at?: DateTimeNullableFilter<"matriculas"> | Date | string | null
+    numero?: IntNullableFilter<"matriculas"> | number | null
+    academia_id?: UuidNullableFilter<"matriculas"> | string | null
+    academias?: XOR<AcademiasNullableScalarRelationFilter, academiasWhereInput> | null
     alunos?: XOR<AlunosNullableScalarRelationFilter, alunosWhereInput> | null
     usuarios?: XOR<UsuariosNullableScalarRelationFilter, usuariosWhereInput> | null
     turmas?: XOR<TurmasNullableScalarRelationFilter, turmasWhereInput> | null
@@ -43137,9 +43232,13 @@ export namespace Prisma {
     matriculado_por?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     updated_at?: SortOrderInput | SortOrder
+    numero?: SortOrderInput | SortOrder
+    academia_id?: SortOrderInput | SortOrder
     _count?: matriculasCountOrderByAggregateInput
+    _avg?: matriculasAvgOrderByAggregateInput
     _max?: matriculasMaxOrderByAggregateInput
     _min?: matriculasMinOrderByAggregateInput
+    _sum?: matriculasSumOrderByAggregateInput
   }
 
   export type matriculasScalarWhereWithAggregatesInput = {
@@ -43156,6 +43255,8 @@ export namespace Prisma {
     matriculado_por?: UuidNullableWithAggregatesFilter<"matriculas"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"matriculas"> | Date | string | null
     updated_at?: DateTimeNullableWithAggregatesFilter<"matriculas"> | Date | string | null
+    numero?: IntNullableWithAggregatesFilter<"matriculas"> | number | null
+    academia_id?: UuidNullableWithAggregatesFilter<"matriculas"> | string | null
   }
 
   export type pagamentosWhereInput = {
@@ -43569,7 +43670,6 @@ export namespace Prisma {
     NOT?: usuariosWhereInput | usuariosWhereInput[]
     id?: UuidFilter<"usuarios"> | string
     auth_id?: UuidNullableFilter<"usuarios"> | string | null
-    academia_id?: UuidFilter<"usuarios"> | string
     nome?: StringFilter<"usuarios"> | string
     email?: StringFilter<"usuarios"> | string
     telefone?: StringNullableFilter<"usuarios"> | string | null
@@ -43592,7 +43692,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: PresencasListRelationFilter
     presencas_presencas_registrada_porTousuarios?: PresencasListRelationFilter
     turmas_responsaveis?: Turmas_responsaveisListRelationFilter
-    academias?: XOR<AcademiasScalarRelationFilter, academiasWhereInput>
     users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: Usuarios_papeisListRelationFilter
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: Usuarios_papeisListRelationFilter
@@ -43601,7 +43700,6 @@ export namespace Prisma {
   export type usuariosOrderByWithRelationInput = {
     id?: SortOrder
     auth_id?: SortOrderInput | SortOrder
-    academia_id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
     telefone?: SortOrderInput | SortOrder
@@ -43624,7 +43722,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasOrderByRelationAggregateInput
     presencas_presencas_registrada_porTousuarios?: presencasOrderByRelationAggregateInput
     turmas_responsaveis?: turmas_responsaveisOrderByRelationAggregateInput
-    academias?: academiasOrderByWithRelationInput
     users?: usersOrderByWithRelationInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisOrderByRelationAggregateInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisOrderByRelationAggregateInput
@@ -43637,7 +43734,6 @@ export namespace Prisma {
     AND?: usuariosWhereInput | usuariosWhereInput[]
     OR?: usuariosWhereInput[]
     NOT?: usuariosWhereInput | usuariosWhereInput[]
-    academia_id?: UuidFilter<"usuarios"> | string
     nome?: StringFilter<"usuarios"> | string
     telefone?: StringNullableFilter<"usuarios"> | string | null
     data_nascimento?: DateTimeNullableFilter<"usuarios"> | Date | string | null
@@ -43659,7 +43755,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: PresencasListRelationFilter
     presencas_presencas_registrada_porTousuarios?: PresencasListRelationFilter
     turmas_responsaveis?: Turmas_responsaveisListRelationFilter
-    academias?: XOR<AcademiasScalarRelationFilter, academiasWhereInput>
     users?: XOR<UsersNullableScalarRelationFilter, usersWhereInput> | null
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: Usuarios_papeisListRelationFilter
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: Usuarios_papeisListRelationFilter
@@ -43668,7 +43763,6 @@ export namespace Prisma {
   export type usuariosOrderByWithAggregationInput = {
     id?: SortOrder
     auth_id?: SortOrderInput | SortOrder
-    academia_id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
     telefone?: SortOrderInput | SortOrder
@@ -43692,7 +43786,6 @@ export namespace Prisma {
     NOT?: usuariosScalarWhereWithAggregatesInput | usuariosScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"usuarios"> | string
     auth_id?: UuidNullableWithAggregatesFilter<"usuarios"> | string | null
-    academia_id?: UuidWithAggregatesFilter<"usuarios"> | string
     nome?: StringWithAggregatesFilter<"usuarios"> | string
     email?: StringWithAggregatesFilter<"usuarios"> | string
     telefone?: StringNullableWithAggregatesFilter<"usuarios"> | string | null
@@ -45169,8 +45262,9 @@ export namespace Prisma {
     data_cadastro?: Date | string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    codigo_convite?: string | null
+    matriculas?: matriculasCreateNestedManyWithoutAcademiasInput
     turmas?: turmasCreateNestedManyWithoutAcademiasInput
-    usuarios?: usuariosCreateNestedManyWithoutAcademiasInput
   }
 
   export type academiasUncheckedCreateInput = {
@@ -45185,8 +45279,9 @@ export namespace Prisma {
     data_cadastro?: Date | string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    codigo_convite?: string | null
+    matriculas?: matriculasUncheckedCreateNestedManyWithoutAcademiasInput
     turmas?: turmasUncheckedCreateNestedManyWithoutAcademiasInput
-    usuarios?: usuariosUncheckedCreateNestedManyWithoutAcademiasInput
   }
 
   export type academiasUpdateInput = {
@@ -45201,8 +45296,9 @@ export namespace Prisma {
     data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    codigo_convite?: NullableStringFieldUpdateOperationsInput | string | null
+    matriculas?: matriculasUpdateManyWithoutAcademiasNestedInput
     turmas?: turmasUpdateManyWithoutAcademiasNestedInput
-    usuarios?: usuariosUpdateManyWithoutAcademiasNestedInput
   }
 
   export type academiasUncheckedUpdateInput = {
@@ -45217,8 +45313,9 @@ export namespace Prisma {
     data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    codigo_convite?: NullableStringFieldUpdateOperationsInput | string | null
+    matriculas?: matriculasUncheckedUpdateManyWithoutAcademiasNestedInput
     turmas?: turmasUncheckedUpdateManyWithoutAcademiasNestedInput
-    usuarios?: usuariosUncheckedUpdateManyWithoutAcademiasNestedInput
   }
 
   export type academiasCreateManyInput = {
@@ -45233,6 +45330,7 @@ export namespace Prisma {
     data_cadastro?: Date | string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    codigo_convite?: string | null
   }
 
   export type academiasUpdateManyMutationInput = {
@@ -45247,6 +45345,7 @@ export namespace Prisma {
     data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    codigo_convite?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type academiasUncheckedUpdateManyInput = {
@@ -45261,6 +45360,7 @@ export namespace Prisma {
     data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    codigo_convite?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type alunosCreateInput = {
@@ -45811,6 +45911,8 @@ export namespace Prisma {
     observacoes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academias?: academiasCreateNestedOneWithoutMatriculasInput
     alunos?: alunosCreateNestedOneWithoutMatriculasInput
     usuarios?: usuariosCreateNestedOneWithoutMatriculasInput
     turmas?: turmasCreateNestedOneWithoutMatriculasInput
@@ -45827,6 +45929,8 @@ export namespace Prisma {
     matriculado_por?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academia_id?: string | null
   }
 
   export type matriculasUpdateInput = {
@@ -45837,6 +45941,8 @@ export namespace Prisma {
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academias?: academiasUpdateOneWithoutMatriculasNestedInput
     alunos?: alunosUpdateOneWithoutMatriculasNestedInput
     usuarios?: usuariosUpdateOneWithoutMatriculasNestedInput
     turmas?: turmasUpdateOneWithoutMatriculasNestedInput
@@ -45853,6 +45959,8 @@ export namespace Prisma {
     matriculado_por?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academia_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type matriculasCreateManyInput = {
@@ -45866,6 +45974,8 @@ export namespace Prisma {
     matriculado_por?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academia_id?: string | null
   }
 
   export type matriculasUpdateManyMutationInput = {
@@ -45876,6 +45986,7 @@ export namespace Prisma {
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type matriculasUncheckedUpdateManyInput = {
@@ -45889,6 +46000,8 @@ export namespace Prisma {
     matriculado_por?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academia_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type pagamentosCreateInput = {
@@ -46336,7 +46449,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -46345,7 +46457,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -46396,7 +46507,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -46405,7 +46515,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46435,7 +46544,6 @@ export namespace Prisma {
   export type usuariosCreateManyInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -46469,7 +46577,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -47715,23 +47822,23 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type MatriculasListRelationFilter = {
+    every?: matriculasWhereInput
+    some?: matriculasWhereInput
+    none?: matriculasWhereInput
+  }
+
   export type TurmasListRelationFilter = {
     every?: turmasWhereInput
     some?: turmasWhereInput
     none?: turmasWhereInput
   }
 
-  export type UsuariosListRelationFilter = {
-    every?: usuariosWhereInput
-    some?: usuariosWhereInput
-    none?: usuariosWhereInput
-  }
-
-  export type turmasOrderByRelationAggregateInput = {
+  export type matriculasOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type usuariosOrderByRelationAggregateInput = {
+  export type turmasOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -47747,6 +47854,7 @@ export namespace Prisma {
     data_cadastro?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    codigo_convite?: SortOrder
   }
 
   export type academiasMaxOrderByAggregateInput = {
@@ -47761,6 +47869,7 @@ export namespace Prisma {
     data_cadastro?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    codigo_convite?: SortOrder
   }
 
   export type academiasMinOrderByAggregateInput = {
@@ -47775,6 +47884,7 @@ export namespace Prisma {
     data_cadastro?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    codigo_convite?: SortOrder
   }
 
   export type DecimalNullableFilter<$PrismaModel = never> = {
@@ -47805,12 +47915,6 @@ export namespace Prisma {
     none?: graduacoesWhereInput
   }
 
-  export type MatriculasListRelationFilter = {
-    every?: matriculasWhereInput
-    some?: matriculasWhereInput
-    none?: matriculasWhereInput
-  }
-
   export type PagamentosListRelationFilter = {
     every?: pagamentosWhereInput
     some?: pagamentosWhereInput
@@ -47828,10 +47932,6 @@ export namespace Prisma {
   }
 
   export type graduacoesOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type matriculasOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -48190,6 +48290,11 @@ export namespace Prisma {
     grau_novo?: SortOrder
   }
 
+  export type AcademiasNullableScalarRelationFilter = {
+    is?: academiasWhereInput | null
+    isNot?: academiasWhereInput | null
+  }
+
   export type matriculasAluno_idTurma_idData_inicioCompoundUniqueInput = {
     aluno_id: string
     turma_id: string
@@ -48207,6 +48312,12 @@ export namespace Prisma {
     matriculado_por?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    numero?: SortOrder
+    academia_id?: SortOrder
+  }
+
+  export type matriculasAvgOrderByAggregateInput = {
+    numero?: SortOrder
   }
 
   export type matriculasMaxOrderByAggregateInput = {
@@ -48220,6 +48331,8 @@ export namespace Prisma {
     matriculado_por?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    numero?: SortOrder
+    academia_id?: SortOrder
   }
 
   export type matriculasMinOrderByAggregateInput = {
@@ -48233,6 +48346,12 @@ export namespace Prisma {
     matriculado_por?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    numero?: SortOrder
+    academia_id?: SortOrder
+  }
+
+  export type matriculasSumOrderByAggregateInput = {
+    numero?: SortOrder
   }
 
   export type DecimalFilter<$PrismaModel = never> = {
@@ -48415,11 +48534,6 @@ export namespace Prisma {
     none?: aulasWhereInput
   }
 
-  export type AcademiasNullableScalarRelationFilter = {
-    is?: academiasWhereInput | null
-    isNot?: academiasWhereInput | null
-  }
-
   export type Turmas_responsaveisListRelationFilter = {
     every?: turmas_responsaveisWhereInput
     some?: turmas_responsaveisWhereInput
@@ -48523,11 +48637,6 @@ export namespace Prisma {
     created_at?: SortOrder
   }
 
-  export type AcademiasScalarRelationFilter = {
-    is?: academiasWhereInput
-    isNot?: academiasWhereInput
-  }
-
   export type UsersNullableScalarRelationFilter = {
     is?: usersWhereInput | null
     isNot?: usersWhereInput | null
@@ -48536,7 +48645,6 @@ export namespace Prisma {
   export type usuariosCountOrderByAggregateInput = {
     id?: SortOrder
     auth_id?: SortOrder
-    academia_id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
     telefone?: SortOrder
@@ -48554,7 +48662,6 @@ export namespace Prisma {
   export type usuariosMaxOrderByAggregateInput = {
     id?: SortOrder
     auth_id?: SortOrder
-    academia_id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
     telefone?: SortOrder
@@ -48572,7 +48679,6 @@ export namespace Prisma {
   export type usuariosMinOrderByAggregateInput = {
     id?: SortOrder
     auth_id?: SortOrder
-    academia_id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
     telefone?: SortOrder
@@ -49344,6 +49450,13 @@ export namespace Prisma {
     update?: XOR<XOR<usuariosUpdateToOneWithWhereWithoutUsersInput, usuariosUpdateWithoutUsersInput>, usuariosUncheckedUpdateWithoutUsersInput>
   }
 
+  export type matriculasCreateNestedManyWithoutAcademiasInput = {
+    create?: XOR<matriculasCreateWithoutAcademiasInput, matriculasUncheckedCreateWithoutAcademiasInput> | matriculasCreateWithoutAcademiasInput[] | matriculasUncheckedCreateWithoutAcademiasInput[]
+    connectOrCreate?: matriculasCreateOrConnectWithoutAcademiasInput | matriculasCreateOrConnectWithoutAcademiasInput[]
+    createMany?: matriculasCreateManyAcademiasInputEnvelope
+    connect?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+  }
+
   export type turmasCreateNestedManyWithoutAcademiasInput = {
     create?: XOR<turmasCreateWithoutAcademiasInput, turmasUncheckedCreateWithoutAcademiasInput> | turmasCreateWithoutAcademiasInput[] | turmasUncheckedCreateWithoutAcademiasInput[]
     connectOrCreate?: turmasCreateOrConnectWithoutAcademiasInput | turmasCreateOrConnectWithoutAcademiasInput[]
@@ -49351,11 +49464,11 @@ export namespace Prisma {
     connect?: turmasWhereUniqueInput | turmasWhereUniqueInput[]
   }
 
-  export type usuariosCreateNestedManyWithoutAcademiasInput = {
-    create?: XOR<usuariosCreateWithoutAcademiasInput, usuariosUncheckedCreateWithoutAcademiasInput> | usuariosCreateWithoutAcademiasInput[] | usuariosUncheckedCreateWithoutAcademiasInput[]
-    connectOrCreate?: usuariosCreateOrConnectWithoutAcademiasInput | usuariosCreateOrConnectWithoutAcademiasInput[]
-    createMany?: usuariosCreateManyAcademiasInputEnvelope
-    connect?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
+  export type matriculasUncheckedCreateNestedManyWithoutAcademiasInput = {
+    create?: XOR<matriculasCreateWithoutAcademiasInput, matriculasUncheckedCreateWithoutAcademiasInput> | matriculasCreateWithoutAcademiasInput[] | matriculasUncheckedCreateWithoutAcademiasInput[]
+    connectOrCreate?: matriculasCreateOrConnectWithoutAcademiasInput | matriculasCreateOrConnectWithoutAcademiasInput[]
+    createMany?: matriculasCreateManyAcademiasInputEnvelope
+    connect?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
   }
 
   export type turmasUncheckedCreateNestedManyWithoutAcademiasInput = {
@@ -49365,11 +49478,18 @@ export namespace Prisma {
     connect?: turmasWhereUniqueInput | turmasWhereUniqueInput[]
   }
 
-  export type usuariosUncheckedCreateNestedManyWithoutAcademiasInput = {
-    create?: XOR<usuariosCreateWithoutAcademiasInput, usuariosUncheckedCreateWithoutAcademiasInput> | usuariosCreateWithoutAcademiasInput[] | usuariosUncheckedCreateWithoutAcademiasInput[]
-    connectOrCreate?: usuariosCreateOrConnectWithoutAcademiasInput | usuariosCreateOrConnectWithoutAcademiasInput[]
-    createMany?: usuariosCreateManyAcademiasInputEnvelope
-    connect?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
+  export type matriculasUpdateManyWithoutAcademiasNestedInput = {
+    create?: XOR<matriculasCreateWithoutAcademiasInput, matriculasUncheckedCreateWithoutAcademiasInput> | matriculasCreateWithoutAcademiasInput[] | matriculasUncheckedCreateWithoutAcademiasInput[]
+    connectOrCreate?: matriculasCreateOrConnectWithoutAcademiasInput | matriculasCreateOrConnectWithoutAcademiasInput[]
+    upsert?: matriculasUpsertWithWhereUniqueWithoutAcademiasInput | matriculasUpsertWithWhereUniqueWithoutAcademiasInput[]
+    createMany?: matriculasCreateManyAcademiasInputEnvelope
+    set?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+    disconnect?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+    delete?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+    connect?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+    update?: matriculasUpdateWithWhereUniqueWithoutAcademiasInput | matriculasUpdateWithWhereUniqueWithoutAcademiasInput[]
+    updateMany?: matriculasUpdateManyWithWhereWithoutAcademiasInput | matriculasUpdateManyWithWhereWithoutAcademiasInput[]
+    deleteMany?: matriculasScalarWhereInput | matriculasScalarWhereInput[]
   }
 
   export type turmasUpdateManyWithoutAcademiasNestedInput = {
@@ -49386,18 +49506,18 @@ export namespace Prisma {
     deleteMany?: turmasScalarWhereInput | turmasScalarWhereInput[]
   }
 
-  export type usuariosUpdateManyWithoutAcademiasNestedInput = {
-    create?: XOR<usuariosCreateWithoutAcademiasInput, usuariosUncheckedCreateWithoutAcademiasInput> | usuariosCreateWithoutAcademiasInput[] | usuariosUncheckedCreateWithoutAcademiasInput[]
-    connectOrCreate?: usuariosCreateOrConnectWithoutAcademiasInput | usuariosCreateOrConnectWithoutAcademiasInput[]
-    upsert?: usuariosUpsertWithWhereUniqueWithoutAcademiasInput | usuariosUpsertWithWhereUniqueWithoutAcademiasInput[]
-    createMany?: usuariosCreateManyAcademiasInputEnvelope
-    set?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
-    disconnect?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
-    delete?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
-    connect?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
-    update?: usuariosUpdateWithWhereUniqueWithoutAcademiasInput | usuariosUpdateWithWhereUniqueWithoutAcademiasInput[]
-    updateMany?: usuariosUpdateManyWithWhereWithoutAcademiasInput | usuariosUpdateManyWithWhereWithoutAcademiasInput[]
-    deleteMany?: usuariosScalarWhereInput | usuariosScalarWhereInput[]
+  export type matriculasUncheckedUpdateManyWithoutAcademiasNestedInput = {
+    create?: XOR<matriculasCreateWithoutAcademiasInput, matriculasUncheckedCreateWithoutAcademiasInput> | matriculasCreateWithoutAcademiasInput[] | matriculasUncheckedCreateWithoutAcademiasInput[]
+    connectOrCreate?: matriculasCreateOrConnectWithoutAcademiasInput | matriculasCreateOrConnectWithoutAcademiasInput[]
+    upsert?: matriculasUpsertWithWhereUniqueWithoutAcademiasInput | matriculasUpsertWithWhereUniqueWithoutAcademiasInput[]
+    createMany?: matriculasCreateManyAcademiasInputEnvelope
+    set?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+    disconnect?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+    delete?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+    connect?: matriculasWhereUniqueInput | matriculasWhereUniqueInput[]
+    update?: matriculasUpdateWithWhereUniqueWithoutAcademiasInput | matriculasUpdateWithWhereUniqueWithoutAcademiasInput[]
+    updateMany?: matriculasUpdateManyWithWhereWithoutAcademiasInput | matriculasUpdateManyWithWhereWithoutAcademiasInput[]
+    deleteMany?: matriculasScalarWhereInput | matriculasScalarWhereInput[]
   }
 
   export type turmasUncheckedUpdateManyWithoutAcademiasNestedInput = {
@@ -49412,20 +49532,6 @@ export namespace Prisma {
     update?: turmasUpdateWithWhereUniqueWithoutAcademiasInput | turmasUpdateWithWhereUniqueWithoutAcademiasInput[]
     updateMany?: turmasUpdateManyWithWhereWithoutAcademiasInput | turmasUpdateManyWithWhereWithoutAcademiasInput[]
     deleteMany?: turmasScalarWhereInput | turmasScalarWhereInput[]
-  }
-
-  export type usuariosUncheckedUpdateManyWithoutAcademiasNestedInput = {
-    create?: XOR<usuariosCreateWithoutAcademiasInput, usuariosUncheckedCreateWithoutAcademiasInput> | usuariosCreateWithoutAcademiasInput[] | usuariosUncheckedCreateWithoutAcademiasInput[]
-    connectOrCreate?: usuariosCreateOrConnectWithoutAcademiasInput | usuariosCreateOrConnectWithoutAcademiasInput[]
-    upsert?: usuariosUpsertWithWhereUniqueWithoutAcademiasInput | usuariosUpsertWithWhereUniqueWithoutAcademiasInput[]
-    createMany?: usuariosCreateManyAcademiasInputEnvelope
-    set?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
-    disconnect?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
-    delete?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
-    connect?: usuariosWhereUniqueInput | usuariosWhereUniqueInput[]
-    update?: usuariosUpdateWithWhereUniqueWithoutAcademiasInput | usuariosUpdateWithWhereUniqueWithoutAcademiasInput[]
-    updateMany?: usuariosUpdateManyWithWhereWithoutAcademiasInput | usuariosUpdateManyWithWhereWithoutAcademiasInput[]
-    deleteMany?: usuariosScalarWhereInput | usuariosScalarWhereInput[]
   }
 
   export type usuariosCreateNestedOneWithoutAlunosInput = {
@@ -49896,6 +50002,12 @@ export namespace Prisma {
     update?: XOR<XOR<usuariosUpdateToOneWithWhereWithoutGraduacoesInput, usuariosUpdateWithoutGraduacoesInput>, usuariosUncheckedUpdateWithoutGraduacoesInput>
   }
 
+  export type academiasCreateNestedOneWithoutMatriculasInput = {
+    create?: XOR<academiasCreateWithoutMatriculasInput, academiasUncheckedCreateWithoutMatriculasInput>
+    connectOrCreate?: academiasCreateOrConnectWithoutMatriculasInput
+    connect?: academiasWhereUniqueInput
+  }
+
   export type alunosCreateNestedOneWithoutMatriculasInput = {
     create?: XOR<alunosCreateWithoutMatriculasInput, alunosUncheckedCreateWithoutMatriculasInput>
     connectOrCreate?: alunosCreateOrConnectWithoutMatriculasInput
@@ -49912,6 +50024,16 @@ export namespace Prisma {
     create?: XOR<turmasCreateWithoutMatriculasInput, turmasUncheckedCreateWithoutMatriculasInput>
     connectOrCreate?: turmasCreateOrConnectWithoutMatriculasInput
     connect?: turmasWhereUniqueInput
+  }
+
+  export type academiasUpdateOneWithoutMatriculasNestedInput = {
+    create?: XOR<academiasCreateWithoutMatriculasInput, academiasUncheckedCreateWithoutMatriculasInput>
+    connectOrCreate?: academiasCreateOrConnectWithoutMatriculasInput
+    upsert?: academiasUpsertWithoutMatriculasInput
+    disconnect?: academiasWhereInput | boolean
+    delete?: academiasWhereInput | boolean
+    connect?: academiasWhereUniqueInput
+    update?: XOR<XOR<academiasUpdateToOneWithWhereWithoutMatriculasInput, academiasUpdateWithoutMatriculasInput>, academiasUncheckedUpdateWithoutMatriculasInput>
   }
 
   export type alunosUpdateOneWithoutMatriculasNestedInput = {
@@ -50375,12 +50497,6 @@ export namespace Prisma {
     connect?: turmas_responsaveisWhereUniqueInput | turmas_responsaveisWhereUniqueInput[]
   }
 
-  export type academiasCreateNestedOneWithoutUsuariosInput = {
-    create?: XOR<academiasCreateWithoutUsuariosInput, academiasUncheckedCreateWithoutUsuariosInput>
-    connectOrCreate?: academiasCreateOrConnectWithoutUsuariosInput
-    connect?: academiasWhereUniqueInput
-  }
-
   export type usersCreateNestedOneWithoutUsuariosInput = {
     create?: XOR<usersCreateWithoutUsuariosInput, usersUncheckedCreateWithoutUsuariosInput>
     connectOrCreate?: usersCreateOrConnectWithoutUsuariosInput
@@ -50618,14 +50734,6 @@ export namespace Prisma {
     update?: turmas_responsaveisUpdateWithWhereUniqueWithoutUsuariosInput | turmas_responsaveisUpdateWithWhereUniqueWithoutUsuariosInput[]
     updateMany?: turmas_responsaveisUpdateManyWithWhereWithoutUsuariosInput | turmas_responsaveisUpdateManyWithWhereWithoutUsuariosInput[]
     deleteMany?: turmas_responsaveisScalarWhereInput | turmas_responsaveisScalarWhereInput[]
-  }
-
-  export type academiasUpdateOneRequiredWithoutUsuariosNestedInput = {
-    create?: XOR<academiasCreateWithoutUsuariosInput, academiasUncheckedCreateWithoutUsuariosInput>
-    connectOrCreate?: academiasCreateOrConnectWithoutUsuariosInput
-    upsert?: academiasUpsertWithoutUsuariosInput
-    connect?: academiasWhereUniqueInput
-    update?: XOR<XOR<academiasUpdateToOneWithWhereWithoutUsuariosInput, academiasUpdateWithoutUsuariosInput>, academiasUncheckedUpdateWithoutUsuariosInput>
   }
 
   export type usersUpdateOneWithoutUsuariosNestedInput = {
@@ -53105,14 +53213,12 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
   }
 
   export type usuariosUncheckedCreateWithoutUsersInput = {
     id?: string
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -53306,14 +53412,12 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
   }
 
   export type usuariosUncheckedUpdateWithoutUsersInput = {
     id?: StringFieldUpdateOperationsInput | string
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -53338,6 +53442,44 @@ export namespace Prisma {
     turmas_responsaveis?: turmas_responsaveisUncheckedUpdateManyWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUncheckedUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUncheckedUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
+  }
+
+  export type matriculasCreateWithoutAcademiasInput = {
+    id?: string
+    data_inicio?: Date | string
+    data_fim?: Date | string | null
+    status?: string | null
+    observacoes?: string | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    numero?: number | null
+    alunos?: alunosCreateNestedOneWithoutMatriculasInput
+    usuarios?: usuariosCreateNestedOneWithoutMatriculasInput
+    turmas?: turmasCreateNestedOneWithoutMatriculasInput
+  }
+
+  export type matriculasUncheckedCreateWithoutAcademiasInput = {
+    id?: string
+    aluno_id?: string | null
+    turma_id?: string | null
+    data_inicio?: Date | string
+    data_fim?: Date | string | null
+    status?: string | null
+    observacoes?: string | null
+    matriculado_por?: string | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    numero?: number | null
+  }
+
+  export type matriculasCreateOrConnectWithoutAcademiasInput = {
+    where: matriculasWhereUniqueInput
+    create: XOR<matriculasCreateWithoutAcademiasInput, matriculasUncheckedCreateWithoutAcademiasInput>
+  }
+
+  export type matriculasCreateManyAcademiasInputEnvelope = {
+    data: matriculasCreateManyAcademiasInput | matriculasCreateManyAcademiasInput[]
+    skipDuplicates?: boolean
   }
 
   export type turmasCreateWithoutAcademiasInput = {
@@ -53388,72 +53530,38 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type usuariosCreateWithoutAcademiasInput = {
-    id?: string
-    nome: string
-    email: string
-    telefone?: string | null
-    data_nascimento?: Date | string | null
-    cpf?: string | null
-    genero?: string | null
-    foto_url?: string | null
-    data_cadastro?: Date | string | null
-    ativo?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    senha?: string | null
-    alunos?: alunosCreateNestedOneWithoutUsuariosInput
-    aulas?: aulasCreateNestedManyWithoutUsuariosInput
-    aulas_instancias?: aulas_instanciasCreateNestedManyWithoutUsuariosInput
-    excecoes_turma?: excecoes_turmaCreateNestedManyWithoutUsuariosInput
-    graduacoes?: graduacoesCreateNestedManyWithoutUsuariosInput
-    matriculas?: matriculasCreateNestedManyWithoutUsuariosInput
-    pagamentos?: pagamentosCreateNestedManyWithoutUsuariosInput
-    presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
-    presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
-    turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    users?: usersCreateNestedOneWithoutUsuariosInput
-    usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
-    usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
+  export type matriculasUpsertWithWhereUniqueWithoutAcademiasInput = {
+    where: matriculasWhereUniqueInput
+    update: XOR<matriculasUpdateWithoutAcademiasInput, matriculasUncheckedUpdateWithoutAcademiasInput>
+    create: XOR<matriculasCreateWithoutAcademiasInput, matriculasUncheckedCreateWithoutAcademiasInput>
   }
 
-  export type usuariosUncheckedCreateWithoutAcademiasInput = {
-    id?: string
-    auth_id?: string | null
-    nome: string
-    email: string
-    telefone?: string | null
-    data_nascimento?: Date | string | null
-    cpf?: string | null
-    genero?: string | null
-    foto_url?: string | null
-    data_cadastro?: Date | string | null
-    ativo?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    senha?: string | null
-    alunos?: alunosUncheckedCreateNestedOneWithoutUsuariosInput
-    aulas?: aulasUncheckedCreateNestedManyWithoutUsuariosInput
-    aulas_instancias?: aulas_instanciasUncheckedCreateNestedManyWithoutUsuariosInput
-    excecoes_turma?: excecoes_turmaUncheckedCreateNestedManyWithoutUsuariosInput
-    graduacoes?: graduacoesUncheckedCreateNestedManyWithoutUsuariosInput
-    matriculas?: matriculasUncheckedCreateNestedManyWithoutUsuariosInput
-    pagamentos?: pagamentosUncheckedCreateNestedManyWithoutUsuariosInput
-    presencas_presencas_confirmada_porTousuarios?: presencasUncheckedCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
-    presencas_presencas_registrada_porTousuarios?: presencasUncheckedCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
-    turmas_responsaveis?: turmas_responsaveisUncheckedCreateNestedManyWithoutUsuariosInput
-    usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUncheckedCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
-    usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUncheckedCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
+  export type matriculasUpdateWithWhereUniqueWithoutAcademiasInput = {
+    where: matriculasWhereUniqueInput
+    data: XOR<matriculasUpdateWithoutAcademiasInput, matriculasUncheckedUpdateWithoutAcademiasInput>
   }
 
-  export type usuariosCreateOrConnectWithoutAcademiasInput = {
-    where: usuariosWhereUniqueInput
-    create: XOR<usuariosCreateWithoutAcademiasInput, usuariosUncheckedCreateWithoutAcademiasInput>
+  export type matriculasUpdateManyWithWhereWithoutAcademiasInput = {
+    where: matriculasScalarWhereInput
+    data: XOR<matriculasUpdateManyMutationInput, matriculasUncheckedUpdateManyWithoutAcademiasInput>
   }
 
-  export type usuariosCreateManyAcademiasInputEnvelope = {
-    data: usuariosCreateManyAcademiasInput | usuariosCreateManyAcademiasInput[]
-    skipDuplicates?: boolean
+  export type matriculasScalarWhereInput = {
+    AND?: matriculasScalarWhereInput | matriculasScalarWhereInput[]
+    OR?: matriculasScalarWhereInput[]
+    NOT?: matriculasScalarWhereInput | matriculasScalarWhereInput[]
+    id?: UuidFilter<"matriculas"> | string
+    aluno_id?: UuidNullableFilter<"matriculas"> | string | null
+    turma_id?: UuidNullableFilter<"matriculas"> | string | null
+    data_inicio?: DateTimeFilter<"matriculas"> | Date | string
+    data_fim?: DateTimeNullableFilter<"matriculas"> | Date | string | null
+    status?: StringNullableFilter<"matriculas"> | string | null
+    observacoes?: StringNullableFilter<"matriculas"> | string | null
+    matriculado_por?: UuidNullableFilter<"matriculas"> | string | null
+    created_at?: DateTimeNullableFilter<"matriculas"> | Date | string | null
+    updated_at?: DateTimeNullableFilter<"matriculas"> | Date | string | null
+    numero?: IntNullableFilter<"matriculas"> | number | null
+    academia_id?: UuidNullableFilter<"matriculas"> | string | null
   }
 
   export type turmasUpsertWithWhereUniqueWithoutAcademiasInput = {
@@ -53491,43 +53599,6 @@ export namespace Prisma {
     updated_at?: DateTimeNullableFilter<"turmas"> | Date | string | null
   }
 
-  export type usuariosUpsertWithWhereUniqueWithoutAcademiasInput = {
-    where: usuariosWhereUniqueInput
-    update: XOR<usuariosUpdateWithoutAcademiasInput, usuariosUncheckedUpdateWithoutAcademiasInput>
-    create: XOR<usuariosCreateWithoutAcademiasInput, usuariosUncheckedCreateWithoutAcademiasInput>
-  }
-
-  export type usuariosUpdateWithWhereUniqueWithoutAcademiasInput = {
-    where: usuariosWhereUniqueInput
-    data: XOR<usuariosUpdateWithoutAcademiasInput, usuariosUncheckedUpdateWithoutAcademiasInput>
-  }
-
-  export type usuariosUpdateManyWithWhereWithoutAcademiasInput = {
-    where: usuariosScalarWhereInput
-    data: XOR<usuariosUpdateManyMutationInput, usuariosUncheckedUpdateManyWithoutAcademiasInput>
-  }
-
-  export type usuariosScalarWhereInput = {
-    AND?: usuariosScalarWhereInput | usuariosScalarWhereInput[]
-    OR?: usuariosScalarWhereInput[]
-    NOT?: usuariosScalarWhereInput | usuariosScalarWhereInput[]
-    id?: UuidFilter<"usuarios"> | string
-    auth_id?: UuidNullableFilter<"usuarios"> | string | null
-    academia_id?: UuidFilter<"usuarios"> | string
-    nome?: StringFilter<"usuarios"> | string
-    email?: StringFilter<"usuarios"> | string
-    telefone?: StringNullableFilter<"usuarios"> | string | null
-    data_nascimento?: DateTimeNullableFilter<"usuarios"> | Date | string | null
-    cpf?: StringNullableFilter<"usuarios"> | string | null
-    genero?: StringNullableFilter<"usuarios"> | string | null
-    foto_url?: StringNullableFilter<"usuarios"> | string | null
-    data_cadastro?: DateTimeNullableFilter<"usuarios"> | Date | string | null
-    ativo?: BoolNullableFilter<"usuarios"> | boolean | null
-    created_at?: DateTimeNullableFilter<"usuarios"> | Date | string | null
-    updated_at?: DateTimeNullableFilter<"usuarios"> | Date | string | null
-    senha?: StringNullableFilter<"usuarios"> | string | null
-  }
-
   export type usuariosCreateWithoutAlunosInput = {
     id?: string
     nome: string
@@ -53551,7 +53622,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -53560,7 +53630,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutAlunosInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -53661,6 +53730,8 @@ export namespace Prisma {
     observacoes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academias?: academiasCreateNestedOneWithoutMatriculasInput
     usuarios?: usuariosCreateNestedOneWithoutMatriculasInput
     turmas?: turmasCreateNestedOneWithoutMatriculasInput
   }
@@ -53675,6 +53746,8 @@ export namespace Prisma {
     matriculado_por?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academia_id?: string | null
   }
 
   export type matriculasCreateOrConnectWithoutAlunosInput = {
@@ -53791,7 +53864,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -53800,7 +53872,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutAlunosInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -53903,22 +53974,6 @@ export namespace Prisma {
     data: XOR<matriculasUpdateManyMutationInput, matriculasUncheckedUpdateManyWithoutAlunosInput>
   }
 
-  export type matriculasScalarWhereInput = {
-    AND?: matriculasScalarWhereInput | matriculasScalarWhereInput[]
-    OR?: matriculasScalarWhereInput[]
-    NOT?: matriculasScalarWhereInput | matriculasScalarWhereInput[]
-    id?: UuidFilter<"matriculas"> | string
-    aluno_id?: UuidNullableFilter<"matriculas"> | string | null
-    turma_id?: UuidNullableFilter<"matriculas"> | string | null
-    data_inicio?: DateTimeFilter<"matriculas"> | Date | string
-    data_fim?: DateTimeNullableFilter<"matriculas"> | Date | string | null
-    status?: StringNullableFilter<"matriculas"> | string | null
-    observacoes?: StringNullableFilter<"matriculas"> | string | null
-    matriculado_por?: UuidNullableFilter<"matriculas"> | string | null
-    created_at?: DateTimeNullableFilter<"matriculas"> | Date | string | null
-    updated_at?: DateTimeNullableFilter<"matriculas"> | Date | string | null
-  }
-
   export type pagamentosUpsertWithWhereUniqueWithoutAlunosInput = {
     where: pagamentosWhereUniqueInput
     update: XOR<pagamentosUpdateWithoutAlunosInput, pagamentosUncheckedUpdateWithoutAlunosInput>
@@ -54007,7 +54062,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -54016,7 +54070,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutAulasInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -54154,7 +54207,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -54163,7 +54215,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutAulasInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -54323,7 +54374,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -54332,7 +54382,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutAulas_instanciasInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -54468,7 +54517,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -54477,7 +54525,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutAulas_instanciasInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -54589,7 +54636,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -54598,7 +54644,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutExcecoes_turmaInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -54759,7 +54804,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -54768,7 +54812,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutExcecoes_turmaInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -54913,7 +54956,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -54922,7 +54964,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutGraduacoesInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -55040,7 +55081,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -55049,7 +55089,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutGraduacoesInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55073,6 +55112,43 @@ export namespace Prisma {
     turmas_responsaveis?: turmas_responsaveisUncheckedUpdateManyWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUncheckedUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUncheckedUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
+  }
+
+  export type academiasCreateWithoutMatriculasInput = {
+    id?: string
+    nome: string
+    cnpj?: string | null
+    endereco?: string | null
+    telefone?: string | null
+    email?: string | null
+    logo_url?: string | null
+    ativa?: boolean | null
+    data_cadastro?: Date | string | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    codigo_convite?: string | null
+    turmas?: turmasCreateNestedManyWithoutAcademiasInput
+  }
+
+  export type academiasUncheckedCreateWithoutMatriculasInput = {
+    id?: string
+    nome: string
+    cnpj?: string | null
+    endereco?: string | null
+    telefone?: string | null
+    email?: string | null
+    logo_url?: string | null
+    ativa?: boolean | null
+    data_cadastro?: Date | string | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    codigo_convite?: string | null
+    turmas?: turmasUncheckedCreateNestedManyWithoutAcademiasInput
+  }
+
+  export type academiasCreateOrConnectWithoutMatriculasInput = {
+    where: academiasWhereUniqueInput
+    create: XOR<academiasCreateWithoutMatriculasInput, academiasUncheckedCreateWithoutMatriculasInput>
   }
 
   export type alunosCreateWithoutMatriculasInput = {
@@ -55145,7 +55221,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -55154,7 +55229,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutMatriculasInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -55226,6 +55300,49 @@ export namespace Prisma {
   export type turmasCreateOrConnectWithoutMatriculasInput = {
     where: turmasWhereUniqueInput
     create: XOR<turmasCreateWithoutMatriculasInput, turmasUncheckedCreateWithoutMatriculasInput>
+  }
+
+  export type academiasUpsertWithoutMatriculasInput = {
+    update: XOR<academiasUpdateWithoutMatriculasInput, academiasUncheckedUpdateWithoutMatriculasInput>
+    create: XOR<academiasCreateWithoutMatriculasInput, academiasUncheckedCreateWithoutMatriculasInput>
+    where?: academiasWhereInput
+  }
+
+  export type academiasUpdateToOneWithWhereWithoutMatriculasInput = {
+    where?: academiasWhereInput
+    data: XOR<academiasUpdateWithoutMatriculasInput, academiasUncheckedUpdateWithoutMatriculasInput>
+  }
+
+  export type academiasUpdateWithoutMatriculasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    endereco?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    logo_url?: NullableStringFieldUpdateOperationsInput | string | null
+    ativa?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    codigo_convite?: NullableStringFieldUpdateOperationsInput | string | null
+    turmas?: turmasUpdateManyWithoutAcademiasNestedInput
+  }
+
+  export type academiasUncheckedUpdateWithoutMatriculasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    endereco?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    logo_url?: NullableStringFieldUpdateOperationsInput | string | null
+    ativa?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    codigo_convite?: NullableStringFieldUpdateOperationsInput | string | null
+    turmas?: turmasUncheckedUpdateManyWithoutAcademiasNestedInput
   }
 
   export type alunosUpsertWithoutMatriculasInput = {
@@ -55315,7 +55432,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -55324,7 +55440,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutMatriculasInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55469,7 +55584,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -55478,7 +55592,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutPagamentosInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -55596,7 +55709,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -55605,7 +55717,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutPagamentosInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -55780,7 +55891,6 @@ export namespace Prisma {
     pagamentos?: pagamentosCreateNestedManyWithoutUsuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -55789,7 +55899,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutPresencas_presencas_confirmada_porTousuariosInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -55843,7 +55952,6 @@ export namespace Prisma {
     pagamentos?: pagamentosCreateNestedManyWithoutUsuariosInput
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -55852,7 +55960,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutPresencas_presencas_registrada_porTousuariosInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -56001,7 +56108,6 @@ export namespace Prisma {
     pagamentos?: pagamentosUpdateManyWithoutUsuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -56010,7 +56116,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutPresencas_presencas_confirmada_porTousuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56070,7 +56175,6 @@ export namespace Prisma {
     pagamentos?: pagamentosUpdateManyWithoutUsuariosNestedInput
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -56079,7 +56183,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutPresencas_presencas_registrada_porTousuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56177,6 +56280,8 @@ export namespace Prisma {
     observacoes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academias?: academiasCreateNestedOneWithoutMatriculasInput
     alunos?: alunosCreateNestedOneWithoutMatriculasInput
     usuarios?: usuariosCreateNestedOneWithoutMatriculasInput
   }
@@ -56191,6 +56296,8 @@ export namespace Prisma {
     matriculado_por?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academia_id?: string | null
   }
 
   export type matriculasCreateOrConnectWithoutTurmasInput = {
@@ -56215,7 +56322,8 @@ export namespace Prisma {
     data_cadastro?: Date | string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    usuarios?: usuariosCreateNestedManyWithoutAcademiasInput
+    codigo_convite?: string | null
+    matriculas?: matriculasCreateNestedManyWithoutAcademiasInput
   }
 
   export type academiasUncheckedCreateWithoutTurmasInput = {
@@ -56230,7 +56338,8 @@ export namespace Prisma {
     data_cadastro?: Date | string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
-    usuarios?: usuariosUncheckedCreateNestedManyWithoutAcademiasInput
+    codigo_convite?: string | null
+    matriculas?: matriculasUncheckedCreateNestedManyWithoutAcademiasInput
   }
 
   export type academiasCreateOrConnectWithoutTurmasInput = {
@@ -56350,7 +56459,8 @@ export namespace Prisma {
     data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    usuarios?: usuariosUpdateManyWithoutAcademiasNestedInput
+    codigo_convite?: NullableStringFieldUpdateOperationsInput | string | null
+    matriculas?: matriculasUpdateManyWithoutAcademiasNestedInput
   }
 
   export type academiasUncheckedUpdateWithoutTurmasInput = {
@@ -56365,7 +56475,8 @@ export namespace Prisma {
     data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    usuarios?: usuariosUncheckedUpdateManyWithoutAcademiasNestedInput
+    codigo_convite?: NullableStringFieldUpdateOperationsInput | string | null
+    matriculas?: matriculasUncheckedUpdateManyWithoutAcademiasNestedInput
   }
 
   export type turmas_responsaveisUpsertWithWhereUniqueWithoutTurmasInput = {
@@ -56461,7 +56572,6 @@ export namespace Prisma {
     pagamentos?: pagamentosCreateNestedManyWithoutUsuariosInput
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
@@ -56470,7 +56580,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutTurmas_responsaveisInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -56584,7 +56693,6 @@ export namespace Prisma {
     pagamentos?: pagamentosUpdateManyWithoutUsuariosNestedInput
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
@@ -56593,7 +56701,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutTurmas_responsaveisInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56804,6 +56911,8 @@ export namespace Prisma {
     observacoes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academias?: academiasCreateNestedOneWithoutMatriculasInput
     alunos?: alunosCreateNestedOneWithoutMatriculasInput
     turmas?: turmasCreateNestedOneWithoutMatriculasInput
   }
@@ -56818,6 +56927,8 @@ export namespace Prisma {
     observacoes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academia_id?: string | null
   }
 
   export type matriculasCreateOrConnectWithoutUsuariosInput = {
@@ -56954,41 +57065,6 @@ export namespace Prisma {
   export type turmas_responsaveisCreateManyUsuariosInputEnvelope = {
     data: turmas_responsaveisCreateManyUsuariosInput | turmas_responsaveisCreateManyUsuariosInput[]
     skipDuplicates?: boolean
-  }
-
-  export type academiasCreateWithoutUsuariosInput = {
-    id?: string
-    nome: string
-    cnpj?: string | null
-    endereco?: string | null
-    telefone?: string | null
-    email?: string | null
-    logo_url?: string | null
-    ativa?: boolean | null
-    data_cadastro?: Date | string | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    turmas?: turmasCreateNestedManyWithoutAcademiasInput
-  }
-
-  export type academiasUncheckedCreateWithoutUsuariosInput = {
-    id?: string
-    nome: string
-    cnpj?: string | null
-    endereco?: string | null
-    telefone?: string | null
-    email?: string | null
-    logo_url?: string | null
-    ativa?: boolean | null
-    data_cadastro?: Date | string | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    turmas?: turmasUncheckedCreateNestedManyWithoutAcademiasInput
-  }
-
-  export type academiasCreateOrConnectWithoutUsuariosInput = {
-    where: academiasWhereUniqueInput
-    create: XOR<academiasCreateWithoutUsuariosInput, academiasUncheckedCreateWithoutUsuariosInput>
   }
 
   export type usersCreateWithoutUsuariosInput = {
@@ -57329,47 +57405,6 @@ export namespace Prisma {
     data: XOR<turmas_responsaveisUpdateManyMutationInput, turmas_responsaveisUncheckedUpdateManyWithoutUsuariosInput>
   }
 
-  export type academiasUpsertWithoutUsuariosInput = {
-    update: XOR<academiasUpdateWithoutUsuariosInput, academiasUncheckedUpdateWithoutUsuariosInput>
-    create: XOR<academiasCreateWithoutUsuariosInput, academiasUncheckedCreateWithoutUsuariosInput>
-    where?: academiasWhereInput
-  }
-
-  export type academiasUpdateToOneWithWhereWithoutUsuariosInput = {
-    where?: academiasWhereInput
-    data: XOR<academiasUpdateWithoutUsuariosInput, academiasUncheckedUpdateWithoutUsuariosInput>
-  }
-
-  export type academiasUpdateWithoutUsuariosInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nome?: StringFieldUpdateOperationsInput | string
-    cnpj?: NullableStringFieldUpdateOperationsInput | string | null
-    endereco?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    logo_url?: NullableStringFieldUpdateOperationsInput | string | null
-    ativa?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    turmas?: turmasUpdateManyWithoutAcademiasNestedInput
-  }
-
-  export type academiasUncheckedUpdateWithoutUsuariosInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nome?: StringFieldUpdateOperationsInput | string
-    cnpj?: NullableStringFieldUpdateOperationsInput | string | null
-    endereco?: NullableStringFieldUpdateOperationsInput | string | null
-    telefone?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    logo_url?: NullableStringFieldUpdateOperationsInput | string | null
-    ativa?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    turmas?: turmasUncheckedUpdateManyWithoutAcademiasNestedInput
-  }
-
   export type usersUpsertWithoutUsuariosInput = {
     update: XOR<usersUpdateWithoutUsuariosInput, usersUncheckedUpdateWithoutUsuariosInput>
     create: XOR<usersCreateWithoutUsuariosInput, usersUncheckedCreateWithoutUsuariosInput>
@@ -57521,7 +57556,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosInput
   }
@@ -57529,7 +57563,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutUsuarios_papeis_usuarios_papeis_concedido_porTousuariosInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -57604,7 +57637,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_confirmada_porTousuariosInput
     presencas_presencas_registrada_porTousuarios?: presencasCreateNestedManyWithoutUsuarios_presencas_registrada_porTousuariosInput
     turmas_responsaveis?: turmas_responsaveisCreateNestedManyWithoutUsuariosInput
-    academias: academiasCreateNestedOneWithoutUsuariosInput
     users?: usersCreateNestedOneWithoutUsuariosInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisCreateNestedManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosInput
   }
@@ -57612,7 +57644,6 @@ export namespace Prisma {
   export type usuariosUncheckedCreateWithoutUsuarios_papeis_usuarios_papeis_usuario_idTousuariosInput = {
     id?: string
     auth_id?: string | null
-    academia_id: string
     nome: string
     email: string
     telefone?: string | null
@@ -57678,7 +57709,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
   }
@@ -57686,7 +57716,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutUsuarios_papeis_usuarios_papeis_concedido_porTousuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -57773,7 +57802,6 @@ export namespace Prisma {
     presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
     presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
     turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    academias?: academiasUpdateOneRequiredWithoutUsuariosNestedInput
     users?: usersUpdateOneWithoutUsuariosNestedInput
     usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
   }
@@ -57781,7 +57809,6 @@ export namespace Prisma {
   export type usuariosUncheckedUpdateWithoutUsuarios_papeis_usuarios_papeis_usuario_idTousuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    academia_id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
@@ -58261,6 +58288,20 @@ export namespace Prisma {
     tag?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type matriculasCreateManyAcademiasInput = {
+    id?: string
+    aluno_id?: string | null
+    turma_id?: string | null
+    data_inicio?: Date | string
+    data_fim?: Date | string | null
+    status?: string | null
+    observacoes?: string | null
+    matriculado_por?: string | null
+    created_at?: Date | string | null
+    updated_at?: Date | string | null
+    numero?: number | null
+  }
+
   export type turmasCreateManyAcademiasInput = {
     id?: string
     nome: string
@@ -58276,21 +58317,46 @@ export namespace Prisma {
     updated_at?: Date | string | null
   }
 
-  export type usuariosCreateManyAcademiasInput = {
-    id?: string
-    auth_id?: string | null
-    nome: string
-    email: string
-    telefone?: string | null
-    data_nascimento?: Date | string | null
-    cpf?: string | null
-    genero?: string | null
-    foto_url?: string | null
-    data_cadastro?: Date | string | null
-    ativo?: boolean | null
-    created_at?: Date | string | null
-    updated_at?: Date | string | null
-    senha?: string | null
+  export type matriculasUpdateWithoutAcademiasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    data_inicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    alunos?: alunosUpdateOneWithoutMatriculasNestedInput
+    usuarios?: usuariosUpdateOneWithoutMatriculasNestedInput
+    turmas?: turmasUpdateOneWithoutMatriculasNestedInput
+  }
+
+  export type matriculasUncheckedUpdateWithoutAcademiasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    aluno_id?: NullableStringFieldUpdateOperationsInput | string | null
+    turma_id?: NullableStringFieldUpdateOperationsInput | string | null
+    data_inicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    matriculado_por?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type matriculasUncheckedUpdateManyWithoutAcademiasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    aluno_id?: NullableStringFieldUpdateOperationsInput | string | null
+    turma_id?: NullableStringFieldUpdateOperationsInput | string | null
+    data_inicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    data_fim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    matriculado_por?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type turmasUpdateWithoutAcademiasInput = {
@@ -58346,81 +58412,6 @@ export namespace Prisma {
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type usuariosUpdateWithoutAcademiasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nome?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    telefone?: NullableStringFieldUpdateOperationsInput | string | null
-    data_nascimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cpf?: NullableStringFieldUpdateOperationsInput | string | null
-    genero?: NullableStringFieldUpdateOperationsInput | string | null
-    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
-    data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    senha?: NullableStringFieldUpdateOperationsInput | string | null
-    alunos?: alunosUpdateOneWithoutUsuariosNestedInput
-    aulas?: aulasUpdateManyWithoutUsuariosNestedInput
-    aulas_instancias?: aulas_instanciasUpdateManyWithoutUsuariosNestedInput
-    excecoes_turma?: excecoes_turmaUpdateManyWithoutUsuariosNestedInput
-    graduacoes?: graduacoesUpdateManyWithoutUsuariosNestedInput
-    matriculas?: matriculasUpdateManyWithoutUsuariosNestedInput
-    pagamentos?: pagamentosUpdateManyWithoutUsuariosNestedInput
-    presencas_presencas_confirmada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
-    presencas_presencas_registrada_porTousuarios?: presencasUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
-    turmas_responsaveis?: turmas_responsaveisUpdateManyWithoutUsuariosNestedInput
-    users?: usersUpdateOneWithoutUsuariosNestedInput
-    usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
-    usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
-  }
-
-  export type usuariosUncheckedUpdateWithoutAcademiasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    nome?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    telefone?: NullableStringFieldUpdateOperationsInput | string | null
-    data_nascimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cpf?: NullableStringFieldUpdateOperationsInput | string | null
-    genero?: NullableStringFieldUpdateOperationsInput | string | null
-    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
-    data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    senha?: NullableStringFieldUpdateOperationsInput | string | null
-    alunos?: alunosUncheckedUpdateOneWithoutUsuariosNestedInput
-    aulas?: aulasUncheckedUpdateManyWithoutUsuariosNestedInput
-    aulas_instancias?: aulas_instanciasUncheckedUpdateManyWithoutUsuariosNestedInput
-    excecoes_turma?: excecoes_turmaUncheckedUpdateManyWithoutUsuariosNestedInput
-    graduacoes?: graduacoesUncheckedUpdateManyWithoutUsuariosNestedInput
-    matriculas?: matriculasUncheckedUpdateManyWithoutUsuariosNestedInput
-    pagamentos?: pagamentosUncheckedUpdateManyWithoutUsuariosNestedInput
-    presencas_presencas_confirmada_porTousuarios?: presencasUncheckedUpdateManyWithoutUsuarios_presencas_confirmada_porTousuariosNestedInput
-    presencas_presencas_registrada_porTousuarios?: presencasUncheckedUpdateManyWithoutUsuarios_presencas_registrada_porTousuariosNestedInput
-    turmas_responsaveis?: turmas_responsaveisUncheckedUpdateManyWithoutUsuariosNestedInput
-    usuarios_papeis_usuarios_papeis_concedido_porTousuarios?: usuarios_papeisUncheckedUpdateManyWithoutUsuarios_usuarios_papeis_concedido_porTousuariosNestedInput
-    usuarios_papeis_usuarios_papeis_usuario_idTousuarios?: usuarios_papeisUncheckedUpdateManyWithoutUsuarios_usuarios_papeis_usuario_idTousuariosNestedInput
-  }
-
-  export type usuariosUncheckedUpdateManyWithoutAcademiasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
-    nome?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    telefone?: NullableStringFieldUpdateOperationsInput | string | null
-    data_nascimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cpf?: NullableStringFieldUpdateOperationsInput | string | null
-    genero?: NullableStringFieldUpdateOperationsInput | string | null
-    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
-    data_cadastro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ativo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    senha?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type excecoes_turmaCreateManyAlunosInput = {
     id?: string
     turma_id?: string | null
@@ -58452,6 +58443,8 @@ export namespace Prisma {
     matriculado_por?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academia_id?: string | null
   }
 
   export type pagamentosCreateManyAlunosInput = {
@@ -58550,6 +58543,8 @@ export namespace Prisma {
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academias?: academiasUpdateOneWithoutMatriculasNestedInput
     usuarios?: usuariosUpdateOneWithoutMatriculasNestedInput
     turmas?: turmasUpdateOneWithoutMatriculasNestedInput
   }
@@ -58564,6 +58559,8 @@ export namespace Prisma {
     matriculado_por?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academia_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type matriculasUncheckedUpdateManyWithoutAlunosInput = {
@@ -58576,6 +58573,8 @@ export namespace Prisma {
     matriculado_por?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academia_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type pagamentosUpdateWithoutAlunosInput = {
@@ -58798,6 +58797,8 @@ export namespace Prisma {
     matriculado_por?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academia_id?: string | null
   }
 
   export type turmas_responsaveisCreateManyTurmasInput = {
@@ -58880,6 +58881,8 @@ export namespace Prisma {
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academias?: academiasUpdateOneWithoutMatriculasNestedInput
     alunos?: alunosUpdateOneWithoutMatriculasNestedInput
     usuarios?: usuariosUpdateOneWithoutMatriculasNestedInput
   }
@@ -58894,6 +58897,8 @@ export namespace Prisma {
     matriculado_por?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academia_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type matriculasUncheckedUpdateManyWithoutTurmasInput = {
@@ -58906,6 +58911,8 @@ export namespace Prisma {
     matriculado_por?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academia_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type turmas_responsaveisUpdateWithoutTurmasInput = {
@@ -58982,6 +58989,8 @@ export namespace Prisma {
     observacoes?: string | null
     created_at?: Date | string | null
     updated_at?: Date | string | null
+    numero?: number | null
+    academia_id?: string | null
   }
 
   export type pagamentosCreateManyUsuariosInput = {
@@ -59184,6 +59193,8 @@ export namespace Prisma {
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academias?: academiasUpdateOneWithoutMatriculasNestedInput
     alunos?: alunosUpdateOneWithoutMatriculasNestedInput
     turmas?: turmasUpdateOneWithoutMatriculasNestedInput
   }
@@ -59198,6 +59209,8 @@ export namespace Prisma {
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academia_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type matriculasUncheckedUpdateManyWithoutUsuariosInput = {
@@ -59210,6 +59223,8 @@ export namespace Prisma {
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    numero?: NullableIntFieldUpdateOperationsInput | number | null
+    academia_id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type pagamentosUpdateWithoutUsuariosInput = {

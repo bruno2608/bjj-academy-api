@@ -320,7 +320,8 @@ exports.Prisma.AcademiasScalarFieldEnum = {
   ativa: 'ativa',
   data_cadastro: 'data_cadastro',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  codigo_convite: 'codigo_convite'
 };
 
 exports.Prisma.AlunosScalarFieldEnum = {
@@ -408,7 +409,9 @@ exports.Prisma.MatriculasScalarFieldEnum = {
   observacoes: 'observacoes',
   matriculado_por: 'matriculado_por',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  numero: 'numero',
+  academia_id: 'academia_id'
 };
 
 exports.Prisma.PagamentosScalarFieldEnum = {
@@ -473,7 +476,6 @@ exports.Prisma.Turmas_responsaveisScalarFieldEnum = {
 exports.Prisma.UsuariosScalarFieldEnum = {
   id: 'id',
   auth_id: 'auth_id',
-  academia_id: 'academia_id',
   nome: 'nome',
   email: 'email',
   telefone: 'telefone',

@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "520d6439-e7ca-48f7-a6e9-f77f95ebdb51",
+		"name": "BJJ Academy API v8",
+		"description": "Coleção para testes da API da BJJ Academy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6584459"
+	},
+	"item": [
+		{
+			"name": "Registrar usuário",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Aluno Teste\",\n  \"email\": \"aluno@email.com\",\n  \"senha\": \"Bjj@123\",\n  \"codigo_convite\": \"BJJ-XXXXXX\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/registrar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"registrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Verifica se o token foi recebido e salva no ambiente",
+							"const jsonData = pm.response.json();",
+							"",
+							"if (jsonData.access_token) {",
+							"  pm.environment.set(\"token\", jsonData.access_token);",
+							"  console.log(\"🔐 Token salvo no ambiente:\", jsonData.access_token);",
+							"} else {",
+							"  console.warn(\"❌ Nenhum token encontrado na resposta.\");",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"adminhml@bjjacademy.com.br\",\n  \"senha\": \"Bjj@123\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar usuários por academia",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/usuarios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar código de convite de academia",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/academias/codigo-convite",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academias",
+						"codigo-convite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gerar novo código de convite",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/academias/codigo-convite",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academias",
+						"codigo-convite"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
