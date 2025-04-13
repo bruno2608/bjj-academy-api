@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.4.6](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.4...v1.4.6) (2025-04-13)
+## [1.4.6](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.5...v1.4.6) (2025-04-13)
 
 ### ✅ Ambientes do projeto
 - Adequando ambiente de DEV/PROD com ip da maquina e local host
