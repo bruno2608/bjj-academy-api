@@ -4,6 +4,10 @@ import { UsuarioResponseDto } from './dtos/usuario-response.dto';
 import { plainToInstance } from 'class-transformer';
 import { CreateUsuarioDto } from './dtos/create-usuario.dto';
 import * as bcrypt from 'bcrypt';
+import { Prisma } from '@prisma/client';
+
+
+
 
 @Injectable()
 export class UsersService {
@@ -58,40 +62,27 @@ export class UsersService {
   }
 
   // Retorna todos os usuários vinculados a uma academia com seus níveis de acesso
+  // Substitua o método antigo por este novo
   async listarPorAcademia(academia_id: string): Promise<UsuarioResponseDto[]> {
-    const matriculas = await this.prisma.matriculas.findMany({
-      where: { academia_id },
-      include: {
-        usuarios: {
-          include: {
-            usuarios_papeis_usuarios_papeis_usuario_idTousuarios: {
-              include: {
-                papeis: true,
-              },
-              orderBy: {
-                papeis: {
-                  nivel_acesso: 'desc',
-                },
-              },
-              take: 1,
-            },
-          },
-        },
-      },
-    });
-
-    const usuarios = matriculas
-      .filter((m) => m.usuarios !== null)
-      .map((m) => {
-        const usuario = m.usuarios!;
-        const papelMaisAlto = usuario.usuarios_papeis_usuarios_papeis_usuario_idTousuarios?.[0]?.papeis;
-
-        return plainToInstance(UsuarioResponseDto, {
-          ...usuario,
-          nivel_acesso: papelMaisAlto?.nivel_acesso ?? 1,
-        });
-      });
-
+    const usuarios = await this.prisma.$queryRawUnsafe<UsuarioResponseDto[]>(`
+      SELECT 
+        u.id,
+        u.nome,
+        u.email,
+        u.telefone,
+        u.genero,
+        u.data_nascimento,
+        u.ativo,
+        MAX(p.nivel_acesso) AS nivel_acesso,
+        MAX(p.nome) AS papel
+      FROM matriculas m
+      JOIN usuarios u ON u.id = m.aluno_id
+      LEFT JOIN usuarios_papeis up ON up.usuario_id = u.id
+      LEFT JOIN papeis p ON p.id = up.papel_id
+      WHERE m.academia_id = '${academia_id}'
+      GROUP BY u.id, u.nome, u.email, u.telefone, u.genero, u.data_nascimento, u.ativo
+      ORDER BY u.nome;
+    `);
     return usuarios;
   }
 }

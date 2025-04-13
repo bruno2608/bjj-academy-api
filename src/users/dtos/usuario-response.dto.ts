@@ -8,5 +8,7 @@ export class UsuarioResponseDto {
   data_nascimento?: Date | null;
   ativo?: boolean | null;
   nivel_acesso?: number | null;
+  papel?: string | null;
 }
+
 

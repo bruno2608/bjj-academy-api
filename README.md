@@ -38,11 +38,13 @@ A lógica de controle de acesso foi migrada do Supabase (RLS) para código expl�
 
 ## ✅ Funcionalidades Atuais
 
-- ✅ Login com verificação de senha via `bcrypt`
-- ✅ Registro de usuários com `codigo_convite`
-- ✅ Criação de matrícula incremental automática
-- ✅ Extração de `academia_id` via token JWT
-- ✅ Controle de papéis com `usuarios_papeis`
+- ✅ Login com verificação de senha via `bcrypt`e autenticação via JWT (`POST /auth/login`)
+- ✅ Registro de usuários com código de convite (`POST /auth/registrar`)
+- ✅ Criação automática de matrícula com número incremental
+- ✅ Atribuição do papel padrão "Aluno" no cadastro
+- ✅ Inclusão de `academia_id` e `nivel_acesso` no token
+- ✅ Proteção de rotas com `JwtAuthGuard`, `@Roles()` e `@User()`
+- ✅ Listagem de usuários da mesma academia com nível de acesso e papel
 - ✅ Rota protegida para consulta de código de convite
 
 ---
@@ -59,18 +61,18 @@ A lógica de controle de acesso foi migrada do Supabase (RLS) para código expl�
 
 ---
 
-## 🔄 Melhorias Recentes (v1.4.4)
+## 🔄 Melhorias Recentes
 
-- Corrigido login com fallback para `matricula` via `findFirst`
-- Garantido o campo `academia_id` no JWT
-- Adicionada mensagem de erro clara se matrícula não existir
-- Testado com Postman (coleção v4 + env com `{{token}}` e `{{base_url}}`)
+- Substituído include quebrado por `prisma.$queryRawUnsafe` na listagem de usuários
+- Inclusão do campo `papel` (nome do papel com maior nível) no retorno do endpoint `/usuarios`
+- Refatorado `users.service.ts` para filtrar por `matricula.academia_id`
+- Atualizado o DTO `UsuarioResponseDto` para refletir campos reais do banco
 
 ---
 
 ## 🚧 Em desenvolvimento
 
-- [ ] 🔎 Correção da listagem de usuários por academia (`GET /usuarios`)
+- [x] 🔎 Correção da listagem de usuários por academia (`GET /usuarios`)
 - [ ] ✅ Finalização do fluxo de cadastro com matrícula + papel automático
 - [ ] 🔐 Implementação de alteração de senha (`PATCH /auth/alterar-senha`)
 - [ ] 📘 Documentação Swagger com exemplos e tags (`/api`)

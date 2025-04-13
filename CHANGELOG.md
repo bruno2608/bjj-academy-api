@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.5](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.4...v1.4.5) (2025-04-13)
+
+### 🧩 Melhorias no Módulo de Usuários
+- Corrigido problema de listagem de usuários por academia
+- Substituído `include` quebrado por `prisma.$queryRawUnsafe`
+- Campo `nivel_acesso` agora é calculado corretamente a partir da maior permissão
+- Adicionado campo `papel` no retorno da rota `GET /usuarios` (ex: "Aluno", "Instrutor", "TI")
+
+### 💾 Estrutura e DTOs
+- Atualizado `UsuarioResponseDto` para incluir campo `papel`
+- Validado retorno de usuários diretamente com SQL testado via Supabase
+- Preparação da rota para dashboards e relatórios por papel
+
+> ℹ️ Essa versão garante que todos os usuários da academia sejam retornados corretamente com seu nível de acesso e papel mais alto, alinhando a API para futura integração com dashboards e o app React Native.
+
 ## [1.4.4](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.3...v1.4.4) (2025-04-12)
 
 ### ✨ Melhorias no fluxo de autenticação
