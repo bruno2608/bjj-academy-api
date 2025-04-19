@@ -28340,6 +28340,8 @@ export namespace Prisma {
     ordem: number | null
     tempo_minimo_meses: number | null
     idade_minima: number | null
+    graus: number | null
+    aulas_por_grau: number | null
   }
 
   export type FaixasSumAggregateOutputType = {
@@ -28347,39 +28349,68 @@ export namespace Prisma {
     ordem: number | null
     tempo_minimo_meses: number | null
     idade_minima: number | null
+    graus: number | null
+    aulas_por_grau: number | null
   }
 
   export type FaixasMinAggregateOutputType = {
     id: number | null
     nome: string | null
     ordem: number | null
-    cor_hex: string | null
     tempo_minimo_meses: number | null
     idade_minima: number | null
     descricao: string | null
     created_at: Date | null
+    categoria: string | null
+    metodo_graus: string | null
+    graus: number | null
+    aulas_por_grau: number | null
+    exibe_progresso: boolean | null
+    exibe_ponteiras: boolean | null
+    cor_base: string | null
+    cor_linha: string | null
+    cor_ponteira: string | null
+    updated_at: Date | null
   }
 
   export type FaixasMaxAggregateOutputType = {
     id: number | null
     nome: string | null
     ordem: number | null
-    cor_hex: string | null
     tempo_minimo_meses: number | null
     idade_minima: number | null
     descricao: string | null
     created_at: Date | null
+    categoria: string | null
+    metodo_graus: string | null
+    graus: number | null
+    aulas_por_grau: number | null
+    exibe_progresso: boolean | null
+    exibe_ponteiras: boolean | null
+    cor_base: string | null
+    cor_linha: string | null
+    cor_ponteira: string | null
+    updated_at: Date | null
   }
 
   export type FaixasCountAggregateOutputType = {
     id: number
     nome: number
     ordem: number
-    cor_hex: number
     tempo_minimo_meses: number
     idade_minima: number
     descricao: number
     created_at: number
+    categoria: number
+    metodo_graus: number
+    graus: number
+    aulas_por_grau: number
+    exibe_progresso: number
+    exibe_ponteiras: number
+    cor_base: number
+    cor_linha: number
+    cor_ponteira: number
+    updated_at: number
     _all: number
   }
 
@@ -28389,6 +28420,8 @@ export namespace Prisma {
     ordem?: true
     tempo_minimo_meses?: true
     idade_minima?: true
+    graus?: true
+    aulas_por_grau?: true
   }
 
   export type FaixasSumAggregateInputType = {
@@ -28396,39 +28429,68 @@ export namespace Prisma {
     ordem?: true
     tempo_minimo_meses?: true
     idade_minima?: true
+    graus?: true
+    aulas_por_grau?: true
   }
 
   export type FaixasMinAggregateInputType = {
     id?: true
     nome?: true
     ordem?: true
-    cor_hex?: true
     tempo_minimo_meses?: true
     idade_minima?: true
     descricao?: true
     created_at?: true
+    categoria?: true
+    metodo_graus?: true
+    graus?: true
+    aulas_por_grau?: true
+    exibe_progresso?: true
+    exibe_ponteiras?: true
+    cor_base?: true
+    cor_linha?: true
+    cor_ponteira?: true
+    updated_at?: true
   }
 
   export type FaixasMaxAggregateInputType = {
     id?: true
     nome?: true
     ordem?: true
-    cor_hex?: true
     tempo_minimo_meses?: true
     idade_minima?: true
     descricao?: true
     created_at?: true
+    categoria?: true
+    metodo_graus?: true
+    graus?: true
+    aulas_por_grau?: true
+    exibe_progresso?: true
+    exibe_ponteiras?: true
+    cor_base?: true
+    cor_linha?: true
+    cor_ponteira?: true
+    updated_at?: true
   }
 
   export type FaixasCountAggregateInputType = {
     id?: true
     nome?: true
     ordem?: true
-    cor_hex?: true
     tempo_minimo_meses?: true
     idade_minima?: true
     descricao?: true
     created_at?: true
+    categoria?: true
+    metodo_graus?: true
+    graus?: true
+    aulas_por_grau?: true
+    exibe_progresso?: true
+    exibe_ponteiras?: true
+    cor_base?: true
+    cor_linha?: true
+    cor_ponteira?: true
+    updated_at?: true
     _all?: true
   }
 
@@ -28522,11 +28584,20 @@ export namespace Prisma {
     id: number
     nome: string
     ordem: number
-    cor_hex: string | null
     tempo_minimo_meses: number | null
     idade_minima: number | null
     descricao: string | null
     created_at: Date | null
+    categoria: string | null
+    metodo_graus: string | null
+    graus: number | null
+    aulas_por_grau: number | null
+    exibe_progresso: boolean | null
+    exibe_ponteiras: boolean | null
+    cor_base: string | null
+    cor_linha: string | null
+    cor_ponteira: string | null
+    updated_at: Date | null
     _count: FaixasCountAggregateOutputType | null
     _avg: FaixasAvgAggregateOutputType | null
     _sum: FaixasSumAggregateOutputType | null
@@ -28552,47 +28623,83 @@ export namespace Prisma {
     id?: boolean
     nome?: boolean
     ordem?: boolean
-    cor_hex?: boolean
     tempo_minimo_meses?: boolean
     idade_minima?: boolean
     descricao?: boolean
     created_at?: boolean
+    categoria?: boolean
+    metodo_graus?: boolean
+    graus?: boolean
+    aulas_por_grau?: boolean
+    exibe_progresso?: boolean
+    exibe_ponteiras?: boolean
+    cor_base?: boolean
+    cor_linha?: boolean
+    cor_ponteira?: boolean
+    updated_at?: boolean
   }, ExtArgs["result"]["faixas"]>
 
   export type faixasSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nome?: boolean
     ordem?: boolean
-    cor_hex?: boolean
     tempo_minimo_meses?: boolean
     idade_minima?: boolean
     descricao?: boolean
     created_at?: boolean
+    categoria?: boolean
+    metodo_graus?: boolean
+    graus?: boolean
+    aulas_por_grau?: boolean
+    exibe_progresso?: boolean
+    exibe_ponteiras?: boolean
+    cor_base?: boolean
+    cor_linha?: boolean
+    cor_ponteira?: boolean
+    updated_at?: boolean
   }, ExtArgs["result"]["faixas"]>
 
   export type faixasSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nome?: boolean
     ordem?: boolean
-    cor_hex?: boolean
     tempo_minimo_meses?: boolean
     idade_minima?: boolean
     descricao?: boolean
     created_at?: boolean
+    categoria?: boolean
+    metodo_graus?: boolean
+    graus?: boolean
+    aulas_por_grau?: boolean
+    exibe_progresso?: boolean
+    exibe_ponteiras?: boolean
+    cor_base?: boolean
+    cor_linha?: boolean
+    cor_ponteira?: boolean
+    updated_at?: boolean
   }, ExtArgs["result"]["faixas"]>
 
   export type faixasSelectScalar = {
     id?: boolean
     nome?: boolean
     ordem?: boolean
-    cor_hex?: boolean
     tempo_minimo_meses?: boolean
     idade_minima?: boolean
     descricao?: boolean
     created_at?: boolean
+    categoria?: boolean
+    metodo_graus?: boolean
+    graus?: boolean
+    aulas_por_grau?: boolean
+    exibe_progresso?: boolean
+    exibe_ponteiras?: boolean
+    cor_base?: boolean
+    cor_linha?: boolean
+    cor_ponteira?: boolean
+    updated_at?: boolean
   }
 
-  export type faixasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "ordem" | "cor_hex" | "tempo_minimo_meses" | "idade_minima" | "descricao" | "created_at", ExtArgs["result"]["faixas"]>
+  export type faixasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "ordem" | "tempo_minimo_meses" | "idade_minima" | "descricao" | "created_at" | "categoria" | "metodo_graus" | "graus" | "aulas_por_grau" | "exibe_progresso" | "exibe_ponteiras" | "cor_base" | "cor_linha" | "cor_ponteira" | "updated_at", ExtArgs["result"]["faixas"]>
 
   export type $faixasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "faixas"
@@ -28601,11 +28708,20 @@ export namespace Prisma {
       id: number
       nome: string
       ordem: number
-      cor_hex: string | null
       tempo_minimo_meses: number | null
       idade_minima: number | null
       descricao: string | null
       created_at: Date | null
+      categoria: string | null
+      metodo_graus: string | null
+      graus: number | null
+      aulas_por_grau: number | null
+      exibe_progresso: boolean | null
+      exibe_ponteiras: boolean | null
+      cor_base: string | null
+      cor_linha: string | null
+      cor_ponteira: string | null
+      updated_at: Date | null
     }, ExtArgs["result"]["faixas"]>
     composites: {}
   }
@@ -29032,11 +29148,20 @@ export namespace Prisma {
     readonly id: FieldRef<"faixas", 'Int'>
     readonly nome: FieldRef<"faixas", 'String'>
     readonly ordem: FieldRef<"faixas", 'Int'>
-    readonly cor_hex: FieldRef<"faixas", 'String'>
     readonly tempo_minimo_meses: FieldRef<"faixas", 'Int'>
     readonly idade_minima: FieldRef<"faixas", 'Int'>
     readonly descricao: FieldRef<"faixas", 'String'>
     readonly created_at: FieldRef<"faixas", 'DateTime'>
+    readonly categoria: FieldRef<"faixas", 'String'>
+    readonly metodo_graus: FieldRef<"faixas", 'String'>
+    readonly graus: FieldRef<"faixas", 'Int'>
+    readonly aulas_por_grau: FieldRef<"faixas", 'Int'>
+    readonly exibe_progresso: FieldRef<"faixas", 'Boolean'>
+    readonly exibe_ponteiras: FieldRef<"faixas", 'Boolean'>
+    readonly cor_base: FieldRef<"faixas", 'String'>
+    readonly cor_linha: FieldRef<"faixas", 'String'>
+    readonly cor_ponteira: FieldRef<"faixas", 'String'>
+    readonly updated_at: FieldRef<"faixas", 'DateTime'>
   }
     
 
@@ -40945,11 +41070,20 @@ export namespace Prisma {
     id: 'id',
     nome: 'nome',
     ordem: 'ordem',
-    cor_hex: 'cor_hex',
     tempo_minimo_meses: 'tempo_minimo_meses',
     idade_minima: 'idade_minima',
     descricao: 'descricao',
-    created_at: 'created_at'
+    created_at: 'created_at',
+    categoria: 'categoria',
+    metodo_graus: 'metodo_graus',
+    graus: 'graus',
+    aulas_por_grau: 'aulas_por_grau',
+    exibe_progresso: 'exibe_progresso',
+    exibe_ponteiras: 'exibe_ponteiras',
+    cor_base: 'cor_base',
+    cor_linha: 'cor_linha',
+    cor_ponteira: 'cor_ponteira',
+    updated_at: 'updated_at'
   };
 
   export type FaixasScalarFieldEnum = (typeof FaixasScalarFieldEnum)[keyof typeof FaixasScalarFieldEnum]
@@ -43005,22 +43139,40 @@ export namespace Prisma {
     id?: IntFilter<"faixas"> | number
     nome?: StringFilter<"faixas"> | string
     ordem?: IntFilter<"faixas"> | number
-    cor_hex?: StringNullableFilter<"faixas"> | string | null
     tempo_minimo_meses?: IntNullableFilter<"faixas"> | number | null
     idade_minima?: IntNullableFilter<"faixas"> | number | null
     descricao?: StringNullableFilter<"faixas"> | string | null
     created_at?: DateTimeNullableFilter<"faixas"> | Date | string | null
+    categoria?: StringNullableFilter<"faixas"> | string | null
+    metodo_graus?: StringNullableFilter<"faixas"> | string | null
+    graus?: IntNullableFilter<"faixas"> | number | null
+    aulas_por_grau?: IntNullableFilter<"faixas"> | number | null
+    exibe_progresso?: BoolNullableFilter<"faixas"> | boolean | null
+    exibe_ponteiras?: BoolNullableFilter<"faixas"> | boolean | null
+    cor_base?: StringNullableFilter<"faixas"> | string | null
+    cor_linha?: StringNullableFilter<"faixas"> | string | null
+    cor_ponteira?: StringNullableFilter<"faixas"> | string | null
+    updated_at?: DateTimeNullableFilter<"faixas"> | Date | string | null
   }
 
   export type faixasOrderByWithRelationInput = {
     id?: SortOrder
     nome?: SortOrder
     ordem?: SortOrder
-    cor_hex?: SortOrderInput | SortOrder
     tempo_minimo_meses?: SortOrderInput | SortOrder
     idade_minima?: SortOrderInput | SortOrder
     descricao?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    categoria?: SortOrderInput | SortOrder
+    metodo_graus?: SortOrderInput | SortOrder
+    graus?: SortOrderInput | SortOrder
+    aulas_por_grau?: SortOrderInput | SortOrder
+    exibe_progresso?: SortOrderInput | SortOrder
+    exibe_ponteiras?: SortOrderInput | SortOrder
+    cor_base?: SortOrderInput | SortOrder
+    cor_linha?: SortOrderInput | SortOrder
+    cor_ponteira?: SortOrderInput | SortOrder
+    updated_at?: SortOrderInput | SortOrder
   }
 
   export type faixasWhereUniqueInput = Prisma.AtLeast<{
@@ -43030,22 +43182,40 @@ export namespace Prisma {
     NOT?: faixasWhereInput | faixasWhereInput[]
     nome?: StringFilter<"faixas"> | string
     ordem?: IntFilter<"faixas"> | number
-    cor_hex?: StringNullableFilter<"faixas"> | string | null
     tempo_minimo_meses?: IntNullableFilter<"faixas"> | number | null
     idade_minima?: IntNullableFilter<"faixas"> | number | null
     descricao?: StringNullableFilter<"faixas"> | string | null
     created_at?: DateTimeNullableFilter<"faixas"> | Date | string | null
+    categoria?: StringNullableFilter<"faixas"> | string | null
+    metodo_graus?: StringNullableFilter<"faixas"> | string | null
+    graus?: IntNullableFilter<"faixas"> | number | null
+    aulas_por_grau?: IntNullableFilter<"faixas"> | number | null
+    exibe_progresso?: BoolNullableFilter<"faixas"> | boolean | null
+    exibe_ponteiras?: BoolNullableFilter<"faixas"> | boolean | null
+    cor_base?: StringNullableFilter<"faixas"> | string | null
+    cor_linha?: StringNullableFilter<"faixas"> | string | null
+    cor_ponteira?: StringNullableFilter<"faixas"> | string | null
+    updated_at?: DateTimeNullableFilter<"faixas"> | Date | string | null
   }, "id">
 
   export type faixasOrderByWithAggregationInput = {
     id?: SortOrder
     nome?: SortOrder
     ordem?: SortOrder
-    cor_hex?: SortOrderInput | SortOrder
     tempo_minimo_meses?: SortOrderInput | SortOrder
     idade_minima?: SortOrderInput | SortOrder
     descricao?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
+    categoria?: SortOrderInput | SortOrder
+    metodo_graus?: SortOrderInput | SortOrder
+    graus?: SortOrderInput | SortOrder
+    aulas_por_grau?: SortOrderInput | SortOrder
+    exibe_progresso?: SortOrderInput | SortOrder
+    exibe_ponteiras?: SortOrderInput | SortOrder
+    cor_base?: SortOrderInput | SortOrder
+    cor_linha?: SortOrderInput | SortOrder
+    cor_ponteira?: SortOrderInput | SortOrder
+    updated_at?: SortOrderInput | SortOrder
     _count?: faixasCountOrderByAggregateInput
     _avg?: faixasAvgOrderByAggregateInput
     _max?: faixasMaxOrderByAggregateInput
@@ -43060,11 +43230,20 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"faixas"> | number
     nome?: StringWithAggregatesFilter<"faixas"> | string
     ordem?: IntWithAggregatesFilter<"faixas"> | number
-    cor_hex?: StringNullableWithAggregatesFilter<"faixas"> | string | null
     tempo_minimo_meses?: IntNullableWithAggregatesFilter<"faixas"> | number | null
     idade_minima?: IntNullableWithAggregatesFilter<"faixas"> | number | null
     descricao?: StringNullableWithAggregatesFilter<"faixas"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"faixas"> | Date | string | null
+    categoria?: StringNullableWithAggregatesFilter<"faixas"> | string | null
+    metodo_graus?: StringNullableWithAggregatesFilter<"faixas"> | string | null
+    graus?: IntNullableWithAggregatesFilter<"faixas"> | number | null
+    aulas_por_grau?: IntNullableWithAggregatesFilter<"faixas"> | number | null
+    exibe_progresso?: BoolNullableWithAggregatesFilter<"faixas"> | boolean | null
+    exibe_ponteiras?: BoolNullableWithAggregatesFilter<"faixas"> | boolean | null
+    cor_base?: StringNullableWithAggregatesFilter<"faixas"> | string | null
+    cor_linha?: StringNullableWithAggregatesFilter<"faixas"> | string | null
+    cor_ponteira?: StringNullableWithAggregatesFilter<"faixas"> | string | null
+    updated_at?: DateTimeNullableWithAggregatesFilter<"faixas"> | Date | string | null
   }
 
   export type graduacoesWhereInput = {
@@ -45736,75 +45915,138 @@ export namespace Prisma {
   export type faixasCreateInput = {
     nome: string
     ordem: number
-    cor_hex?: string | null
     tempo_minimo_meses?: number | null
     idade_minima?: number | null
     descricao?: string | null
     created_at?: Date | string | null
+    categoria?: string | null
+    metodo_graus?: string | null
+    graus?: number | null
+    aulas_por_grau?: number | null
+    exibe_progresso?: boolean | null
+    exibe_ponteiras?: boolean | null
+    cor_base?: string | null
+    cor_linha?: string | null
+    cor_ponteira?: string | null
+    updated_at?: Date | string | null
   }
 
   export type faixasUncheckedCreateInput = {
     id?: number
     nome: string
     ordem: number
-    cor_hex?: string | null
     tempo_minimo_meses?: number | null
     idade_minima?: number | null
     descricao?: string | null
     created_at?: Date | string | null
+    categoria?: string | null
+    metodo_graus?: string | null
+    graus?: number | null
+    aulas_por_grau?: number | null
+    exibe_progresso?: boolean | null
+    exibe_ponteiras?: boolean | null
+    cor_base?: string | null
+    cor_linha?: string | null
+    cor_ponteira?: string | null
+    updated_at?: Date | string | null
   }
 
   export type faixasUpdateInput = {
     nome?: StringFieldUpdateOperationsInput | string
     ordem?: IntFieldUpdateOperationsInput | number
-    cor_hex?: NullableStringFieldUpdateOperationsInput | string | null
     tempo_minimo_meses?: NullableIntFieldUpdateOperationsInput | number | null
     idade_minima?: NullableIntFieldUpdateOperationsInput | number | null
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    categoria?: NullableStringFieldUpdateOperationsInput | string | null
+    metodo_graus?: NullableStringFieldUpdateOperationsInput | string | null
+    graus?: NullableIntFieldUpdateOperationsInput | number | null
+    aulas_por_grau?: NullableIntFieldUpdateOperationsInput | number | null
+    exibe_progresso?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    exibe_ponteiras?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    cor_base?: NullableStringFieldUpdateOperationsInput | string | null
+    cor_linha?: NullableStringFieldUpdateOperationsInput | string | null
+    cor_ponteira?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type faixasUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     ordem?: IntFieldUpdateOperationsInput | number
-    cor_hex?: NullableStringFieldUpdateOperationsInput | string | null
     tempo_minimo_meses?: NullableIntFieldUpdateOperationsInput | number | null
     idade_minima?: NullableIntFieldUpdateOperationsInput | number | null
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    categoria?: NullableStringFieldUpdateOperationsInput | string | null
+    metodo_graus?: NullableStringFieldUpdateOperationsInput | string | null
+    graus?: NullableIntFieldUpdateOperationsInput | number | null
+    aulas_por_grau?: NullableIntFieldUpdateOperationsInput | number | null
+    exibe_progresso?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    exibe_ponteiras?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    cor_base?: NullableStringFieldUpdateOperationsInput | string | null
+    cor_linha?: NullableStringFieldUpdateOperationsInput | string | null
+    cor_ponteira?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type faixasCreateManyInput = {
     id?: number
     nome: string
     ordem: number
-    cor_hex?: string | null
     tempo_minimo_meses?: number | null
     idade_minima?: number | null
     descricao?: string | null
     created_at?: Date | string | null
+    categoria?: string | null
+    metodo_graus?: string | null
+    graus?: number | null
+    aulas_por_grau?: number | null
+    exibe_progresso?: boolean | null
+    exibe_ponteiras?: boolean | null
+    cor_base?: string | null
+    cor_linha?: string | null
+    cor_ponteira?: string | null
+    updated_at?: Date | string | null
   }
 
   export type faixasUpdateManyMutationInput = {
     nome?: StringFieldUpdateOperationsInput | string
     ordem?: IntFieldUpdateOperationsInput | number
-    cor_hex?: NullableStringFieldUpdateOperationsInput | string | null
     tempo_minimo_meses?: NullableIntFieldUpdateOperationsInput | number | null
     idade_minima?: NullableIntFieldUpdateOperationsInput | number | null
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    categoria?: NullableStringFieldUpdateOperationsInput | string | null
+    metodo_graus?: NullableStringFieldUpdateOperationsInput | string | null
+    graus?: NullableIntFieldUpdateOperationsInput | number | null
+    aulas_por_grau?: NullableIntFieldUpdateOperationsInput | number | null
+    exibe_progresso?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    exibe_ponteiras?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    cor_base?: NullableStringFieldUpdateOperationsInput | string | null
+    cor_linha?: NullableStringFieldUpdateOperationsInput | string | null
+    cor_ponteira?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type faixasUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     ordem?: IntFieldUpdateOperationsInput | number
-    cor_hex?: NullableStringFieldUpdateOperationsInput | string | null
     tempo_minimo_meses?: NullableIntFieldUpdateOperationsInput | number | null
     idade_minima?: NullableIntFieldUpdateOperationsInput | number | null
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    categoria?: NullableStringFieldUpdateOperationsInput | string | null
+    metodo_graus?: NullableStringFieldUpdateOperationsInput | string | null
+    graus?: NullableIntFieldUpdateOperationsInput | number | null
+    aulas_por_grau?: NullableIntFieldUpdateOperationsInput | number | null
+    exibe_progresso?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    exibe_ponteiras?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    cor_base?: NullableStringFieldUpdateOperationsInput | string | null
+    cor_linha?: NullableStringFieldUpdateOperationsInput | string | null
+    cor_ponteira?: NullableStringFieldUpdateOperationsInput | string | null
+    updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type graduacoesCreateInput = {
@@ -48179,11 +48421,20 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     ordem?: SortOrder
-    cor_hex?: SortOrder
     tempo_minimo_meses?: SortOrder
     idade_minima?: SortOrder
     descricao?: SortOrder
     created_at?: SortOrder
+    categoria?: SortOrder
+    metodo_graus?: SortOrder
+    graus?: SortOrder
+    aulas_por_grau?: SortOrder
+    exibe_progresso?: SortOrder
+    exibe_ponteiras?: SortOrder
+    cor_base?: SortOrder
+    cor_linha?: SortOrder
+    cor_ponteira?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type faixasAvgOrderByAggregateInput = {
@@ -48191,28 +48442,48 @@ export namespace Prisma {
     ordem?: SortOrder
     tempo_minimo_meses?: SortOrder
     idade_minima?: SortOrder
+    graus?: SortOrder
+    aulas_por_grau?: SortOrder
   }
 
   export type faixasMaxOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
     ordem?: SortOrder
-    cor_hex?: SortOrder
     tempo_minimo_meses?: SortOrder
     idade_minima?: SortOrder
     descricao?: SortOrder
     created_at?: SortOrder
+    categoria?: SortOrder
+    metodo_graus?: SortOrder
+    graus?: SortOrder
+    aulas_por_grau?: SortOrder
+    exibe_progresso?: SortOrder
+    exibe_ponteiras?: SortOrder
+    cor_base?: SortOrder
+    cor_linha?: SortOrder
+    cor_ponteira?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type faixasMinOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
     ordem?: SortOrder
-    cor_hex?: SortOrder
     tempo_minimo_meses?: SortOrder
     idade_minima?: SortOrder
     descricao?: SortOrder
     created_at?: SortOrder
+    categoria?: SortOrder
+    metodo_graus?: SortOrder
+    graus?: SortOrder
+    aulas_por_grau?: SortOrder
+    exibe_progresso?: SortOrder
+    exibe_ponteiras?: SortOrder
+    cor_base?: SortOrder
+    cor_linha?: SortOrder
+    cor_ponteira?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type faixasSumOrderByAggregateInput = {
@@ -48220,6 +48491,8 @@ export namespace Prisma {
     ordem?: SortOrder
     tempo_minimo_meses?: SortOrder
     idade_minima?: SortOrder
+    graus?: SortOrder
+    aulas_por_grau?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {

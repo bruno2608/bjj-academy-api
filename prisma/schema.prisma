@@ -430,11 +430,20 @@ model faixas {
   id                 Int       @id @default(autoincrement())
   nome               String
   ordem              Int
-  cor_hex            String?
   tempo_minimo_meses Int?
   idade_minima       Int?
   descricao          String?
   created_at         DateTime? @default(now()) @db.Timestamptz(6)
+  categoria          String?   @default("Adulto")
+  metodo_graus       String?   @default("manual")
+  graus              Int?      @default(4)
+  aulas_por_grau     Int?      @default(0)
+  exibe_progresso    Boolean?  @default(true)
+  exibe_ponteiras    Boolean?  @default(true)
+  cor_base           String?   @default("#FFFFFF")
+  cor_linha          String?   @default("#000000")
+  cor_ponteira       String?   @default("#000000")
+  updated_at         DateTime? @default(now()) @db.Timestamp(6)
 
   @@schema("public")
 }

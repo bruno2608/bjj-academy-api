@@ -378,11 +378,20 @@ exports.Prisma.FaixasScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
   ordem: 'ordem',
-  cor_hex: 'cor_hex',
   tempo_minimo_meses: 'tempo_minimo_meses',
   idade_minima: 'idade_minima',
   descricao: 'descricao',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  categoria: 'categoria',
+  metodo_graus: 'metodo_graus',
+  graus: 'graus',
+  aulas_por_grau: 'aulas_por_grau',
+  exibe_progresso: 'exibe_progresso',
+  exibe_ponteiras: 'exibe_ponteiras',
+  cor_base: 'cor_base',
+  cor_linha: 'cor_linha',
+  cor_ponteira: 'cor_ponteira',
+  updated_at: 'updated_at'
 };
 
 exports.Prisma.GraduacoesScalarFieldEnum = {
