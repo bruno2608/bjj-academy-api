@@ -1,27 +1,25 @@
-// src/users/users.controller.ts
-import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Patch, Body, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { UsuarioResponseDto } from './dtos/usuario-response.dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
-import { RolesGuard } from '../common/guards/roles.guard';
-import { Roles } from '../common/decorators/roles.decorator';
+import { UpdateUsuarioDto } from './dtos/update-usuario.dto';
 import { User } from '../common/decorators/user.decorator';
-import { CreateUsuarioDto } from './dtos/create-usuario.dto';
+import { JwtPayload } from '../auth/jwt-payload.interface';
 
 @Controller('usuarios')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get()
-  @Roles(4)
-  async listarPorAcademia(@User() user: any): Promise<UsuarioResponseDto[]> {
+  async findAll(@User() user: JwtPayload) {
     return this.usersService.listarPorAcademia(user.academia_id);
   }
 
-  @Post()
-  @Roles(4)
-  async criar(@Body() data: CreateUsuarioDto): Promise<UsuarioResponseDto> {
-    return this.usersService.criar(data);
+  @Patch('me')
+  async updateMe(
+    @User() user: JwtPayload,
+    @Body() data: UpdateUsuarioDto,
+  ) {
+    return this.usersService.atualizarPerfil(user.sub, data);
   }
 }

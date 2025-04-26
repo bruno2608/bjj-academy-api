@@ -363,6 +363,8 @@ model alunos {
   emergencia_telefone        String?
   created_at                 DateTime?        @default(now()) @db.Timestamptz(6)
   updated_at                 DateTime?        @default(now()) @db.Timestamptz(6)
+  faixa_id                   Int?
+  faixas                     faixas?          @relation(fields: [faixa_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   usuarios                   usuarios         @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   excecoes_turma             excecoes_turma[]
   graduacoes                 graduacoes[]
@@ -444,25 +446,28 @@ model faixas {
   cor_linha          String?   @default("#000000")
   cor_ponteira       String?   @default("#000000")
   updated_at         DateTime? @default(now()) @db.Timestamp(6)
+  alunos             alunos[]
 
   @@schema("public")
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model graduacoes {
-  id             String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  aluno_id       String?   @db.Uuid
-  faixa_anterior String?
-  grau_anterior  Int?
-  faixa_nova     String
-  grau_novo      Int
-  data_graduacao DateTime  @db.Date
-  professor_id   String?   @db.Uuid
-  status         String?   @default("Pendente")
-  observacoes    String?
-  created_at     DateTime? @default(now()) @db.Timestamptz(6)
-  alunos         alunos?   @relation(fields: [aluno_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  usuarios       usuarios? @relation(fields: [professor_id], references: [id], onUpdate: NoAction)
+  id               String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  aluno_id         String?   @db.Uuid
+  grau_anterior    Int?
+  grau_novo        Int
+  data_graduacao   DateTime  @db.Date
+  professor_id     String?   @db.Uuid
+  status           String?   @default("Pendente")
+  observacoes      String?
+  created_at       DateTime? @default(now()) @db.Timestamptz(6)
+  tipo_solicitacao String?   @default("solicitada")
+  avaliado_em      DateTime? @db.Timestamptz(6)
+  faixa_anterior   String?   @db.Uuid
+  faixa_nova       String?   @db.Uuid
+  alunos           alunos?   @relation(fields: [aluno_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  usuarios         usuarios? @relation(fields: [professor_id], references: [id], onUpdate: NoAction)
 
   @@schema("public")
 }
@@ -594,6 +599,8 @@ model usuarios {
   created_at                                              DateTime?             @default(now()) @db.Timestamptz(6)
   updated_at                                              DateTime?             @default(now()) @db.Timestamptz(6)
   senha                                                   String?
+  grau                                                    Int?                  @default(0)
+  faixa_id                                                Int?
   alunos                                                  alunos?
   aulas                                                   aulas[]
   aulas_instancias                                        aulas_instancias[]

@@ -55,6 +55,7 @@ A lógica de controle de acesso foi migrada do Supabase (RLS) para código expl�
 |--------|---------------------------------------|------------------------------------------------------------------|
 | POST   | `/auth/registrar`                     | Registro de aluno via código de convite                         |
 | POST   | `/auth/login`                         | Login com e-mail e senha (retorna JWT)                          |
+| PATCH  | `/usuarios/me`                        | Atualizar informações de perfil                                 |
 | GET    | `/usuarios`                           | Listagem de usuários da mesma academia (nível 4+)               |
 | GET    | `/academias/codigo-convite`           | Consulta do código de convite da academia do token (nível 4+)   |
 | PATCH  | `/academias/codigo-convite`           | Gera novo código de convite aleatório (nível 4+)                |

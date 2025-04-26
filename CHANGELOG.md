@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.8...v1.5.0) (2025-04-26)
+
+### 🧍 Atualização de Perfil (PATCH /usuarios/me)
+- Criado suporte para atualização de telefone, gênero, data de nascimento, faixa atual e grau
+- Atualizado campo `faixa_id` para inteiro no banco de dados
+- DTOs atualizados para refletir nova estrutura
+- Correção de inconsistência entre tipos de faixa_id no Prisma
+- Preparação para integração com tela ProfileSetupScreen do app
+
 ## [1.4.8](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.7...v1.4.8) (2025-04-13)
 
 ### 🧩 Melhorias no Módulo

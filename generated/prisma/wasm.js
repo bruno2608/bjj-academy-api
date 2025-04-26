@@ -338,7 +338,8 @@ exports.Prisma.AlunosScalarFieldEnum = {
   emergencia_contato: 'emergencia_contato',
   emergencia_telefone: 'emergencia_telefone',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  faixa_id: 'faixa_id'
 };
 
 exports.Prisma.AulasScalarFieldEnum = {
@@ -397,15 +398,17 @@ exports.Prisma.FaixasScalarFieldEnum = {
 exports.Prisma.GraduacoesScalarFieldEnum = {
   id: 'id',
   aluno_id: 'aluno_id',
-  faixa_anterior: 'faixa_anterior',
   grau_anterior: 'grau_anterior',
-  faixa_nova: 'faixa_nova',
   grau_novo: 'grau_novo',
   data_graduacao: 'data_graduacao',
   professor_id: 'professor_id',
   status: 'status',
   observacoes: 'observacoes',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  tipo_solicitacao: 'tipo_solicitacao',
+  avaliado_em: 'avaliado_em',
+  faixa_anterior: 'faixa_anterior',
+  faixa_nova: 'faixa_nova'
 };
 
 exports.Prisma.MatriculasScalarFieldEnum = {
@@ -496,7 +499,9 @@ exports.Prisma.UsuariosScalarFieldEnum = {
   ativo: 'ativo',
   created_at: 'created_at',
   updated_at: 'updated_at',
-  senha: 'senha'
+  senha: 'senha',
+  grau: 'grau',
+  faixa_id: 'faixa_id'
 };
 
 exports.Prisma.Usuarios_papeisScalarFieldEnum = {
