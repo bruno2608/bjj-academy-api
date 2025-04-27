@@ -15,6 +15,11 @@ export class UsersController {
     return this.usersService.listarPorAcademia(user.academia_id);
   }
 
+  @Get('me')
+  async findMe(@User() user: JwtPayload) {
+    return this.usersService.buscarPerfilPorId(user.sub);
+  }
+
   @Patch('me')
   async updateMe(
     @User() user: JwtPayload,

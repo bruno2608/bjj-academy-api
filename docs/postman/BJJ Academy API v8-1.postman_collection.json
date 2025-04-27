@@ -162,7 +162,7 @@
 			"response": []
 		},
 		{
-			"name": "Consultar usuario",
+			"name": "Atualizar perfil",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -175,6 +175,15 @@
 						"value": "Bearer {{token}}"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"telefone\": \"(11) 91234-5678\",\r\n  \"genero\": \"Masculino\",\r\n  \"data_nascimento\": \"1998-10-05\",\r\n  \"faixa_id\": 2,\r\n  \"grau\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "{{base_url}}/usuarios/me",
 					"host": [

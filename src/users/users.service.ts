@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../common/prisma.service';
 import { UpdateUsuarioDto } from './dtos/update-usuario.dto';
 import * as bcrypt from 'bcrypt';
@@ -42,4 +42,28 @@ export class UsersService {
       },
     });
   }
+
+  async buscarPerfilPorId(usuarioId: string) {
+    const usuario = await this.prisma.usuarios.findUnique({
+      where: { id: usuarioId },
+      select: {
+        id: true,
+        nome: true,
+        email: true,
+        telefone: true,
+        genero: true,
+        data_nascimento: true,
+        ativo: true,
+        faixa_id: true,
+        grau: true,
+      },
+    });
+  
+    if (!usuario) {
+      throw new NotFoundException('Usuário não encontrado');
+    }
+  
+    return usuario;
+  }
+  
 }

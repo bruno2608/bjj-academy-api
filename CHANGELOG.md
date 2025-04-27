@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.1](https://github.com/bruno2608/bjj-academy-api/compare/v1.5.0...v1.5.1) (2025-04-27)
+
+### 🧍 Consulta de Perfil (GET /usuarios/me)
+- Criado suporte para consulta de telefone, gênero, data de nascimento, faixa atual e grau
+
 ## [1.5.0](https://github.com/bruno2608/bjj-academy-api/compare/v1.4.8...v1.5.0) (2025-04-26)
 
 ### 🧍 Atualização de Perfil (PATCH /usuarios/me)
